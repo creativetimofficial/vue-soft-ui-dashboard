@@ -38,7 +38,6 @@
               :to="{ name: 'Sign In' }"
               class="px-0 nav-link font-weight-bold"
               :class="textWhite ? textWhite : 'text-body'"
-              target="_blank"
             >
               <i
                 class="fa fa-user"
