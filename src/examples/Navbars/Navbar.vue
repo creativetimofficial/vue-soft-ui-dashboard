@@ -1,9 +1,6 @@
 <template>
   <nav
     class="shadow-none navbar navbar-main navbar-expand-lg border-radius-xl"
-    :class="
-      this.$store.state.isRTL ? 'top-1 position-sticky z-index-sticky' : ''
-    "
     v-bind="$attrs"
     id="navbarBlur"
     data-scroll="true"
@@ -234,6 +231,20 @@ export default {
     currentRouteName() {
       return this.$route.name;
     },
+  },
+  updated() {
+    const navbar = document.getElementById("navbarBlur");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10 && this.$store.state.isNavFixed) {
+        navbar.classList.add("blur");
+        navbar.classList.add("position-sticky");
+        navbar.classList.add("shadow-blur");
+      } else {
+        navbar.classList.remove("blur");
+        navbar.classList.remove("position-sticky");
+        navbar.classList.remove("shadow-blur");
+      }
+    });
   },
 };
 </script>

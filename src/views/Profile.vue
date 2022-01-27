@@ -27,9 +27,14 @@
             <p class="mb-0 text-sm font-weight-bold">CEO / Co-Founder</p>
           </div>
         </div>
-        <div class="mx-auto mt-3 col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0">
+        <div
+          class="mx-auto mt-3 col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0"
+        >
           <div class="nav-wrapper position-relative end-0">
-            <ul class="p-1 bg-transparent nav nav-pills nav-fill" role="tablist">
+            <ul
+              class="p-1 bg-transparent nav nav-pills nav-fill"
+              role="tablist"
+            >
               <li class="nav-item">
                 <a
                   class="px-0 py-1 mb-0 nav-link active"
@@ -47,7 +52,12 @@
                     xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
                       <g
                         transform="translate(-2319.000000, -291.000000)"
                         fill="#FFFFFF"
@@ -95,7 +105,12 @@
                     xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <title>document</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
                       <g
                         transform="translate(-1870.000000, -591.000000)"
                         fill="#FFFFFF"
@@ -138,7 +153,12 @@
                     xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <title>settings</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
                       <g
                         transform="translate(-2020.000000, -442.000000)"
                         fill="#FFFFFF"
@@ -182,7 +202,9 @@
             <h6 class="mb-0">Platform Settings</h6>
           </div>
           <div class="p-3 card-body">
-            <h6 class="text-xs text-uppercase text-body font-weight-bolder">Account</h6>
+            <h6 class="text-xs text-uppercase text-body font-weight-bolder">
+              Account
+            </h6>
             <ul class="list-group">
               <li class="px-0 border-0 list-group-item">
                 <vsud-switch
@@ -191,7 +213,8 @@
                   labelClass="mb-0 text-body ms-3 text-truncate w-80"
                   inputClass="ms-auto"
                   checked
-                >Email me when someone follows me</vsud-switch>
+                  >Email me when someone follows me</vsud-switch
+                >
               </li>
               <li class="px-0 border-0 list-group-item">
                 <vsud-switch
@@ -199,7 +222,8 @@
                   id="flexSwitchCheckDefault1"
                   labelClass="mb-0 text-body ms-3 text-truncate w-80"
                   inputClass="ms-auto"
-                >Email me when someone answers on my post</vsud-switch>
+                  >Email me when someone answers on my post</vsud-switch
+                >
               </li>
 
               <li class="px-0 border-0 list-group-item">
@@ -209,10 +233,15 @@
                   labelClass="mb-0 text-body ms-3 text-truncate w-80"
                   inputClass="ms-auto"
                   checked
-                >Email me when someone mentions me</vsud-switch>
+                  >Email me when someone mentions me</vsud-switch
+                >
               </li>
             </ul>
-            <h6 class="mt-4 text-xs text-uppercase text-body font-weight-bolder">Application</h6>
+            <h6
+              class="mt-4 text-xs text-uppercase text-body font-weight-bolder"
+            >
+              Application
+            </h6>
             <ul class="list-group">
               <li class="px-0 border-0 list-group-item">
                 <vsud-switch
@@ -220,7 +249,8 @@
                   id="flexSwitchCheckDefault3"
                   labelClass="mb-0 text-body ms-3 text-truncate w-80"
                   inputClass="ms-auto"
-                >New launches and projects</vsud-switch>
+                  >New launches and projects</vsud-switch
+                >
               </li>
               <li class="px-0 border-0 list-group-item">
                 <vsud-switch
@@ -229,7 +259,8 @@
                   labelClass="mb-0 text-body ms-3 text-truncate w-80"
                   inputClass="ms-auto"
                   checked
-                >Monthly product updates</vsud-switch>
+                  >Monthly product updates</vsud-switch
+                >
               </li>
               <li class="px-0 pb-0 border-0 list-group-item">
                 <vsud-switch
@@ -237,7 +268,8 @@
                   id="flexSwitchCheckDefault5"
                   labelClass="mb-0 text-body ms-3 text-truncate w-80"
                   inputClass="ms-auto"
-                >Subscribe to newsletter</vsud-switch>
+                  >Subscribe to newsletter</vsud-switch
+                >
               </li>
             </ul>
           </div>
@@ -253,7 +285,9 @@
           </div>
           <div class="p-3 card-body">
             <ul class="list-group">
-              <li class="px-0 mb-2 border-0 list-group-item d-flex align-items-center">
+              <li
+                class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
+              >
                 <vsud-avatar
                   class="me-3"
                   :img="sophie"
@@ -261,13 +295,21 @@
                   borderRadius="lg"
                   shadow="regular"
                 />
-                <div class="d-flex align-items-start flex-column justify-content-center">
+                <div
+                  class="d-flex align-items-start flex-column justify-content-center"
+                >
                   <h6 class="mb-0 text-sm">Sophie B.</h6>
                   <p class="mb-0 text-xs">Hi! I need more information..</p>
                 </div>
-                <a class="mb-0 btn btn-link pe-3 ps-0 ms-auto" href="javascript:;">Reply</a>
+                <a
+                  class="mb-0 btn btn-link pe-3 ps-0 ms-auto"
+                  href="javascript:;"
+                  >Reply</a
+                >
               </li>
-              <li class="px-0 mb-2 border-0 list-group-item d-flex align-items-center">
+              <li
+                class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
+              >
                 <vsud-avatar
                   class="me-3"
                   :img="marie"
@@ -275,13 +317,21 @@
                   borderRadius="lg"
                   shadow="regular"
                 />
-                <div class="d-flex align-items-start flex-column justify-content-center">
+                <div
+                  class="d-flex align-items-start flex-column justify-content-center"
+                >
                   <h6 class="mb-0 text-sm">Anne Marie</h6>
                   <p class="mb-0 text-xs">Awesome work, can you..</p>
                 </div>
-                <a class="mb-0 btn btn-link pe-3 ps-0 ms-auto" href="javascript:;">Reply</a>
+                <a
+                  class="mb-0 btn btn-link pe-3 ps-0 ms-auto"
+                  href="javascript:;"
+                  >Reply</a
+                >
               </li>
-              <li class="px-0 mb-2 border-0 list-group-item d-flex align-items-center">
+              <li
+                class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
+              >
                 <vsud-avatar
                   class="me-3"
                   :img="ivana"
@@ -289,13 +339,21 @@
                   borderRadius="lg"
                   shadow="regular"
                 />
-                <div class="d-flex align-items-start flex-column justify-content-center">
+                <div
+                  class="d-flex align-items-start flex-column justify-content-center"
+                >
                   <h6 class="mb-0 text-sm">Ivanna</h6>
                   <p class="mb-0 text-xs">About files I can..</p>
                 </div>
-                <a class="mb-0 btn btn-link pe-3 ps-0 ms-auto" href="javascript:;">Reply</a>
+                <a
+                  class="mb-0 btn btn-link pe-3 ps-0 ms-auto"
+                  href="javascript:;"
+                  >Reply</a
+                >
               </li>
-              <li class="px-0 mb-2 border-0 list-group-item d-flex align-items-center">
+              <li
+                class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
+              >
                 <vsud-avatar
                   class="me-3"
                   :img="peterson"
@@ -303,19 +361,39 @@
                   borderRadius="lg"
                   shadow="regular"
                 />
-                <div class="d-flex align-items-start flex-column justify-content-center">
+                <div
+                  class="d-flex align-items-start flex-column justify-content-center"
+                >
                   <h6 class="mb-0 text-sm">Peterson</h6>
                   <p class="mb-0 text-xs">Have a great afternoon..</p>
                 </div>
-                <a class="mb-0 btn btn-link pe-3 ps-0 ms-auto" href="javascript:;">Reply</a>
+                <a
+                  class="mb-0 btn btn-link pe-3 ps-0 ms-auto"
+                  href="javascript:;"
+                  >Reply</a
+                >
               </li>
-              <li class="px-0 border-0 list-group-item d-flex align-items-center">
-                <vsud-avatar class="me-3" :img="nick" alt="kal" borderRadius="lg" shadow="regular" />
-                <div class="d-flex align-items-start flex-column justify-content-center">
+              <li
+                class="px-0 border-0 list-group-item d-flex align-items-center"
+              >
+                <vsud-avatar
+                  class="me-3"
+                  :img="nick"
+                  alt="kal"
+                  borderRadius="lg"
+                  shadow="regular"
+                />
+                <div
+                  class="d-flex align-items-start flex-column justify-content-center"
+                >
                   <h6 class="mb-0 text-sm">Nick Daniel</h6>
                   <p class="mb-0 text-xs">Hi! I need more information..</p>
                 </div>
-                <a class="mb-0 btn btn-link pe-3 ps-0 ms-auto" href="javascript:;">Reply</a>
+                <a
+                  class="mb-0 btn btn-link pe-3 ps-0 ms-auto"
+                  href="javascript:;"
+                  >Reply</a
+                >
               </li>
             </ul>
           </div>
@@ -384,7 +462,9 @@
               </div>
               <div class="mb-4 col-xl-3 col-md-6 mb-xl-0">
                 <div class="border card h-100 card-plain">
-                  <div class="text-center card-body d-flex flex-column justify-content-center">
+                  <div
+                    class="text-center card-body d-flex flex-column justify-content-center"
+                  >
                     <a href="javascript:;">
                       <i class="mb-3 fa fa-plus text-secondary"></i>
                       <h5 class="text-secondary">New project</h5>
@@ -450,6 +530,7 @@ export default {
 
   mounted() {
     this.$store.state.isAbsolute = true;
+    this.$store.state.isNavFixed = false;
     setNavPills();
     setTooltip();
   },

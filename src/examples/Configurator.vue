@@ -99,7 +99,8 @@
             type="checkbox"
             id="navbarFixed"
             :checked="this.$store.state.isNavFixed"
-            @click="setNavbarFixed"
+            @change="setNavbarFixed"
+            v-model="fixedKey"
           />
         </div>
         <hr class="horizontal dark my-sm-4" />
@@ -154,6 +155,11 @@ import { mapMutations, mapActions } from "vuex";
 export default {
   name: "configurator",
   props: ["toggle"],
+  data() {
+    return {
+      fixedKey: "",
+    };
+  },
   methods: {
     ...mapMutations(["navbarMinimize", "sidebarType", "navbarFixed"]),
     ...mapActions(["toggleSidebarColor"]),
@@ -168,14 +174,8 @@ export default {
     },
 
     setNavbarFixed() {
-      if (
-        this.$route.name !== "Profile Overview" ||
-        this.$route.name !== "Teams" ||
-        this.$route.name !== "All Projects"
-      ) {
-        // do nothing
-      } else {
-        this.$store.commit("navbarFixed");
+      if (this.$route.name !== "Profile") {
+        this.$store.state.isNavFixed = !this.$store.state.isNavFixed;
       }
     },
 
