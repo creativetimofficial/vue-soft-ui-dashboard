@@ -22,14 +22,19 @@ export default createStore({
     },
     navbarMinimize(state) {
       const sidenav_show = document.querySelector(".g-sidenav-show");
+      const sidenav = document.getElementById("sidenav-main");
 
-      if (sidenav_show.classList.contains("g-sidenav-hidden")) {
-        sidenav_show.classList.remove("g-sidenav-hidden");
-        sidenav_show.classList.add("g-sidenav-pinned");
+      if (sidenav_show.classList.contains("g-sidenav-pinned")) {
+        sidenav_show.classList.remove("g-sidenav-pinned");
+        setTimeout(function () {
+          sidenav.classList.remove("bg-white");
+        }, 100);
+        sidenav.classList.remove("bg-transparent");
         state.isPinned = true;
       } else {
-        sidenav_show.classList.add("g-sidenav-hidden");
-        sidenav_show.classList.remove("g-sidenav-pinned");
+        sidenav_show.classList.add("g-sidenav-pinned");
+        sidenav.classList.add("bg-white");
+        sidenav.classList.remove("bg-transparent");
         state.isPinned = false;
       }
     },
