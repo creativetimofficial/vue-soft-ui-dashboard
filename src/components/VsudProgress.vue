@@ -3,24 +3,27 @@
     <div
       class="progress-bar"
       :class="getClasses(color, variant)"
-      :style="{width: percentage + '%'}"
+      :style="{ width: percentage + '%' }"
     ></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "vsud-progress",
+  name: "VsudProgress",
   props: {
     color: {
       type: String,
-      default: "primary",
+      default: "success",
     },
     variant: {
       type: String,
       default: "fill",
     },
-    percentage: String,
+    percentage: {
+      type: Number,
+      required: true,
+    },
   },
   methods: {
     getClasses: (color, variant) => {

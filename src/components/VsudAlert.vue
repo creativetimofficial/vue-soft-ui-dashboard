@@ -25,13 +25,16 @@
 
 <script>
 export default {
-  name: "vsud-alert",
+  name: "VsudAlert",
   props: {
     color: {
       type: String,
       default: "success",
     },
-    icon: String,
+    icon: {
+      type: String,
+      default: "",
+    },
     dismissible: {
       type: Boolean,
       default: false,

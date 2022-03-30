@@ -1,7 +1,7 @@
 <template>
   <div
-    class="shadow-none card card-background card-background-mask-secondary"
     id="sidenavCard"
+    class="shadow-none card card-background card-background-mask-secondary"
   >
     <div
       class="full-background"
@@ -12,10 +12,10 @@
         class="mb-3 text-center bg-white shadow icon icon-shape icon-sm d-flex align-items-center justify-content-center border-radius-md"
       >
         <i
+          id="sidenavCardIcon"
           class="top-0 text-lg text-dark text-gradient"
           aria-hidden="true"
-          :class="iconClass"
-          id="sidenavCardIcon"
+          :class="icon"
         ></i>
       </div>
       <div v-if="this.$store.state.isRTL" class="docs-info">
@@ -23,15 +23,15 @@
         <p class="text-xs font-weight-bold text-end">
           يرجى التحقق من مستنداتنا
         </p>
-        <a :href="href" target="_blank" class="mb-0 btn btn-white btn-sm w-100"
+        <a :href="route" target="_blank" class="mb-0 btn btn-white btn-sm w-100"
           >توثيق
         </a>
       </div>
       <div v-else class="docs-info">
         <h6 class="mb-0 text-white up">{{ textPrimary }}</h6>
         <p class="text-xs font-weight-bold">{{ textSecondary }}</p>
-        <a :href="href" target="_blank" class="mb-0 btn btn-white btn-sm w-100"
-          >{{ linkText }}
+        <a :href="route" target="_blank" class="mb-0 btn btn-white btn-sm w-100"
+          >{{ label }}
         </a>
       </div>
     </div>
@@ -40,8 +40,29 @@
 <script>
 import imgWhiteCurved from "../../assets/img/curved-images/white-curved.jpeg";
 export default {
-  name: "sidenav-card",
-  props: ["textPrimary", "textSecondary", "href", "linkText", "iconClass"],
+  name: "SidenavCard",
+  props: {
+    textPrimary: {
+      type: String,
+      default: "",
+    },
+    textSecondary: {
+      type: String,
+      default: "",
+    },
+    route: {
+      type: String,
+      default: "",
+    },
+    label: {
+      type: String,
+      default: "",
+    },
+    icon: {
+      type: String,
+      default: "",
+    },
+  },
   data() {
     return {
       imgWhiteCurved,

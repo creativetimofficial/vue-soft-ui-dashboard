@@ -1,23 +1,29 @@
 <template>
   <div class="form-group">
-    <label :for="exampleFormControlTextarea1">
+    <label :for="id">
       <slot />
     </label>
     <textarea
+      :id="id"
       class="form-control"
       rows="5"
       :placeholder="placeholder"
-      :id="exampleFormControlTextarea1"
     ></textarea>
   </div>
 </template>
 
 <script>
 export default {
-  name: "vsud-textarea",
+  name: "VsudTextarea",
   props: {
-    id: String,
-    placeholder: String,
+    id: {
+      type: String,
+      required: true,
+    },
+    placeholder: {
+      type: String,
+      default: "Your text here...",
+    },
   },
 };
 </script>

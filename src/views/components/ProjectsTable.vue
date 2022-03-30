@@ -60,7 +60,7 @@
                     <vsud-progress
                       color="info"
                       variant="gradient"
-                      percentage="60"
+                      :percentage="60"
                     />
                   </div>
                 </div>
@@ -99,7 +99,7 @@
                     <vsud-progress
                       color="success"
                       variant="gradient"
-                      percentage="100"
+                      :percentage="100"
                     />
                   </div>
                 </div>
@@ -142,7 +142,7 @@
                     <vsud-progress
                       color="danger"
                       variant="gradient"
-                      percentage="30"
+                      :percentage="30"
                     />
                   </div>
                 </div>
@@ -185,7 +185,7 @@
                     <vsud-progress
                       color="success"
                       variant="gradient"
-                      percentage="0"
+                      :percentage="0"
                     />
                   </div>
                 </div>
@@ -228,7 +228,7 @@
                     <vsud-progress
                       color="info"
                       variant="gradient"
-                      percentage="80"
+                      :percentage="80"
                     />
                   </div>
                 </div>
@@ -271,7 +271,7 @@
                     <vsud-progress
                       color="success"
                       variant="gradient"
-                      percentage="100"
+                      :percentage="100"
                     />
                   </div>
                 </div>

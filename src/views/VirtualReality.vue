@@ -1,22 +1,20 @@
 <template>
   <div>
     <navbar
-      :minNav="navbarMinimize"
+      :min-nav="navbarMinimize"
       :toggle="toggleConfigurator"
-      :class="
-        this.$store.state.isNavFixed ? this.$store.state.navbarFixed_class : ''
-      "
+      :class="isNavFixed ? navbarFixed : ''"
     />
   </div>
   <div
     class="mx-3 mt-3 border-radius-xl position-relative"
     :style="{
-      backgroundImage: 'url(' + require('../assets/img/vr-bg.jpg') + ')',
+      backgroundImage: 'url(' + require('@/assets/img/vr-bg.jpg') + ')',
       backgroundSize: 'cover',
     }"
   >
     <sidenav
-      :custom_class="this.$store.state.mcolor"
+      :custom_class="mcolor"
       :class="isTransparent"
       class="fixed-start"
     />
@@ -37,7 +35,7 @@
                 <img
                   class="border-radius-lg"
                   alt="Image placeholder"
-                  src="../assets/img/team-1.jpg"
+                  src="@/assets/img/team-1.jpg"
                 />
               </a>
               <button
@@ -77,22 +75,60 @@
                 <div class="ms-auto">
                   <img
                     class="w-50 float-end mt-lg-n4"
-                    src="../assets/img/small-logos/icon-sun-cloud.png"
+                    src="@/assets/img/small-logos/icon-sun-cloud.png"
                     alt="image sun"
                   />
                 </div>
               </div>
               <div class="mt-4 row">
                 <div class="col-lg-4 col-md-4">
-                  <card-calendar />
+                  <calendar-card
+                    :items="[
+                      {
+                        time: '08:00',
+                        description: `Synk up with Mark<small class='text-secondary font-weight-normal'>Hangouts</small>`,
+                      },
+                      {
+                        time: '09:30',
+                        description: `Gym<br /><small class='text-secondary font-weight-normal'>World Class</small>`,
+                      },
+                      {
+                        time: '11:00',
+                        description: `Design Review<br /><small class='text-secondary font-weight-normal'>Zoom</small>`,
+                      },
+                    ]"
+                  />
                 </div>
                 <div class="mt-4 col-lg-4 col-md-4 mt-sm-0">
-                  <card-to-do />
-                  <card-email />
+                  <todo-card :todos="['Shopping', 'Meeting']" />
+                  <email-card />
                 </div>
                 <div class="mt-4 col-lg-4 col-md-4 mt-sm-0">
-                  <card-player />
-                  <card-message />
+                  <mini-player-card />
+                  <message-card
+                    :messages="[
+                      {
+                        route: '/',
+                        tooltip: '2 New Messages',
+                        image: { url: image1, alt: 'Image Placeholder' },
+                      },
+                      {
+                        route: '/',
+                        tooltip: '1 New Messages',
+                        image: { url: image2, alt: 'Image Placeholder' },
+                      },
+                      {
+                        route: '/',
+                        tooltip: '13 New Messages',
+                        image: { url: image3, alt: 'Image Placeholder' },
+                      },
+                      {
+                        route: '/',
+                        tooltip: '7 New Messages',
+                        image: { url: image4, alt: 'Image Placeholder' },
+                      },
+                    ]"
+                  />
                 </div>
               </div>
             </div>
@@ -108,34 +144,47 @@
 import Sidenav from "@/examples/Sidenav";
 import AppFooter from "@/examples/Footer.vue";
 import Navbar from "@/examples/Navbars/Navbar.vue";
-import CardCalendar from "./components/CardCalendar.vue";
-import CardEmail from "./components/CardEmail.vue";
-import CardToDo from "./components/CardToDo.vue";
-import CardPlayer from "./components/CardPlayer.vue";
-import CardMessage from "./components/CardMessage.vue";
+import CalendarCard from "./components/CalendarCard.vue";
+import EmailCard from "./components/EmailCard.vue";
+import TodoCard from "./components/TodoCard.vue";
+import MiniPlayerCard from "@/examples/Cards/MiniPlayerCard.vue";
+import MessageCard from "./components/MessageCard.vue";
 import setTooltip from "@/assets/js/tooltip.js";
+
+import image1 from "@/assets/img/team-1.jpg";
+import image2 from "@/assets/img/team-2.jpg";
+import image3 from "@/assets/img/team-3.jpg";
+import image4 from "@/assets/img/team-4.jpg";
 
 const body = document.getElementsByTagName("body")[0];
 
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 
 export default {
-  name: "virtual-reality",
+  name: "VrInfo",
   components: {
     AppFooter,
     Sidenav,
     Navbar,
-    CardCalendar,
-    CardEmail,
-    CardToDo,
-    CardPlayer,
-    CardMessage,
+    CalendarCard,
+    EmailCard,
+    TodoCard,
+    MiniPlayerCard,
+    MessageCard,
+  },
+  data() {
+    return {
+      image1,
+      image2,
+      image3,
+      image4,
+    };
+  },
+  computed: {
+    ...mapState(["isTransparent", "isNavFixed", "navbarFixed", "mcolor"]),
   },
   mounted() {
-    setTooltip();
-  },
-  methods: {
-    ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
+    setTooltip(this.$store.state.bootstrap);
   },
   beforeMount() {
     this.$store.state.showNavbar = false;
@@ -158,10 +207,8 @@ export default {
     }
     this.$store.state.isTransparent = "bg-transparent";
   },
-  computed: {
-    isTransparent() {
-      return this.$store.state.isTransparent;
-    },
+  methods: {
+    ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
   },
 };
 </script>

@@ -1,6 +1,12 @@
 <template>
   <div class="form-check">
-    <input class="form-check-input" type="radio" :name="name" :id="id" :checked="checked" />
+    <input
+      :id="id"
+      class="form-check-input"
+      type="radio"
+      :name="name"
+      :checked="checked"
+    />
     <label class="custom-control-label" :for="id">
       <slot />
     </label>
@@ -9,11 +15,20 @@
 
 <script>
 export default {
-  name: "vsud-radio",
+  name: "VsudRadio",
   props: {
-    name: String,
-    id: String,
-    checked: String,
+    name: {
+      type: String,
+      required: true,
+    },
+    id: {
+      type: String,
+      required: true,
+    },
+    checked: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>

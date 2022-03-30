@@ -1,18 +1,37 @@
 <template>
   <div class="avatar" :class="getSize(size)">
-    <img :src="img" :alt="alt" :class="[getClasses(shadow, circular, borderRadius)]" />
+    <img
+      :src="img"
+      :alt="alt"
+      :class="[getClasses(shadow, circular, borderRadius)]"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: "vsud-avatar",
+  name: "VsudAvatar",
   props: {
-    img: String,
-    alt: String,
-    size: String,
-    shadow: String,
-    borderRadius: String,
+    img: {
+      type: String,
+      required: true,
+    },
+    alt: {
+      type: String,
+      default: "",
+    },
+    size: {
+      type: String,
+      default: null,
+    },
+    shadow: {
+      type: String,
+      default: null,
+    },
+    borderRadius: {
+      type: String,
+      default: null,
+    },
     circular: Boolean,
   },
   methods: {

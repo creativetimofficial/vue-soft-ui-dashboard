@@ -6,22 +6,22 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <sidenav-collapse navText="Dashboard" :to="{ name: 'Dashboard' }">
-          <template v-slot:icon>
-            <icon name="dashboard" />
+          <template #icon>
+            <shop />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
         <sidenav-collapse navText="Tables" :to="{ name: 'Tables' }">
-          <template v-slot:icon>
-            <icon name="tables" />
+          <template #icon>
+            <office />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
         <sidenav-collapse navText="Billing" :to="{ name: 'Billing' }">
-          <template v-slot:icon>
-            <icon name="billing" />
+          <template #icon>
+            <credit-card />
           </template>
         </sidenav-collapse>
       </li>
@@ -31,15 +31,15 @@
           navText="Virtual Reality"
           :to="{ name: 'Virtual Reality' }"
         >
-          <template v-slot:icon>
-            <icon name="virtual-reality" />
+          <template #icon>
+            <box3d />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
         <sidenav-collapse navText="RTL" :to="{ name: 'Rtl' }">
-          <template v-slot:icon>
-            <icon name="rtl-page" />
+          <template #icon>
+            <settings />
           </template>
         </sidenav-collapse>
       </li>
@@ -53,22 +53,22 @@
       </li>
       <li class="nav-item">
         <sidenav-collapse navText="Profile" :to="{ name: 'Profile' }">
-          <template v-slot:icon>
-            <icon name="customer-support" />
+          <template #icon>
+            <customer-support />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
         <sidenav-collapse navText="Sign In" :to="{ name: 'Sign In' }">
-          <template v-slot:icon>
-            <icon name="sign-in" />
+          <template #icon>
+            <document />
           </template>
         </sidenav-collapse>
       </li>
       <li class="nav-item">
         <sidenav-collapse navText="Sign Up" :to="{ name: 'Sign Up' }">
-          <template v-slot:icon>
-            <icon name="sign-up" />
+          <template #icon>
+            <spaceship />
           </template>
         </sidenav-collapse>
       </li>
@@ -79,9 +79,9 @@
       :class="cardBg"
       textPrimary="Need Help?"
       textSecondary="Please check our docs"
-      href="https://www.creative-tim.com/learning-lab/vue/overview/soft-ui-dashboard/"
-      linkText="Documentation"
-      iconClass="ni ni-diamond"
+      route="https://www.creative-tim.com/learning-lab/vue/overview/soft-ui-dashboard/"
+      label="Documentation"
+      icon="ni ni-diamond"
     />
     <a
       class="btn bg-gradient-success mt-4 w-100"
@@ -92,9 +92,16 @@
   </div>
 </template>
 <script>
-import Icon from "@/components/Icon.vue";
 import SidenavCollapse from "./SidenavCollapse.vue";
 import SidenavCard from "./SidenavCard.vue";
+import Shop from "../../components/Icon/Shop.vue";
+import Office from "../../components/Icon/Office.vue";
+import CreditCard from "../../components/Icon/CreditCard.vue";
+import Box3d from "../../components/Icon/Box3d.vue";
+import CustomerSupport from "../../components/Icon/CustomerSupport.vue";
+import Document from "../../components/Icon/Document.vue";
+import Spaceship from "../../components/Icon/Spaceship.vue";
+import Settings from "../../components/Icon/Settings.vue";
 
 export default {
   name: "SidenavList",
@@ -109,9 +116,16 @@ export default {
     };
   },
   components: {
-    Icon,
     SidenavCollapse,
     SidenavCard,
+    Shop,
+    Office,
+    CreditCard,
+    Box3d,
+    CustomerSupport,
+    Document,
+    Spaceship,
+    Settings,
   },
   methods: {
     getRoute() {

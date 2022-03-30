@@ -6,10 +6,16 @@
 
 <script>
 export default {
-  name: "vsud-pagination",
+  name: "VsudPagination",
   props: {
-    color: String,
-    size: String,
+    color: {
+      type: String,
+      default: "success",
+    },
+    size: {
+      type: String,
+      default: "md",
+    },
   },
   methods: {
     getClasses: (color, size) => {
