@@ -10,9 +10,12 @@
 
 <script>
 export default {
-  name: "vsud-pagination-item",
+  name: "VsudPaginationItem",
   props: {
-    label: String,
+    label: {
+      type: String,
+      default: "",
+    },
     active: {
       type: Boolean,
       default: false,

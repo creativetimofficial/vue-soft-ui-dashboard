@@ -133,7 +133,7 @@
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="60"
+                      :percentage="60"
                     />
                   </div>
                 </div>
@@ -188,7 +188,7 @@
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="10"
+                      :percentage="10"
                     />
                   </div>
                 </div>
@@ -243,7 +243,7 @@
                       color="success"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="100"
+                      :percentage="100"
                     />
                   </div>
                 </div>
@@ -316,7 +316,7 @@
                       color="success"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="100"
+                      :percentage="100"
                     />
                   </div>
                 </div>
@@ -363,7 +363,7 @@
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="25"
+                      :percentage="25"
                     />
                   </div>
                 </div>
@@ -418,7 +418,7 @@
                       color="info"
                       class="mx-auto"
                       variant="gradient"
-                      percentage="40"
+                      :percentage="40"
                     />
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 <template>
   <aside
     class="my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl"
-    :class="this.$store.state.isRTL ? 'me-3 rotate-caret' : 'ms-3'"
+    :class="isRTL ? 'me-3 rotate-caret' : 'ms-3'"
     id="sidenav-main"
   >
     <div class="sidenav-header">
@@ -16,12 +16,13 @@
       </a>
     </div>
     <hr class="mt-0 horizontal dark" />
-    <sidenav-list :cardBg="custom_class" />
+    <sidenav-list :cardBg="customClass" />
   </aside>
 </template>
 <script>
 import SidenavList from "./SidenavList.vue";
 import logo from "@/assets/img/logo-ct.png";
+import { mapState } from "vuex";
 
 export default {
   name: "index",
@@ -33,6 +34,14 @@ export default {
       logo,
     };
   },
-  props: ["custom_class"],
+  props: {
+    customClass: {
+      type: String,
+      default: "",
+    },
+  },
+  computed: {
+    ...mapState(["isRTL"]),
+  },
 };
 </script>

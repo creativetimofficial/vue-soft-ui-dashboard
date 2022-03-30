@@ -1,15 +1,28 @@
 {
   "name": "vue-soft-ui-dashboard",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "author": "Creative Tim",
+  "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
+  "description": "VueJS version of Soft UI Dashboard PRO by Creative Tim",
   "homepage": "https://demos.creative-tim.com/vue-soft-ui-dashboard/",
+  "bugs": {
+    "url": "https://github.com/creativetimofficial/vue-soft-ui-dashboard/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/creativetimofficial/vue-soft-ui-dashboard.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@popperjs/core": "2.10.2",
     "bootstrap": "5.1.3",
     "chart.js": "3.6.0",
@@ -31,7 +44,6 @@
     "eslint": "6.7.2",
     "eslint-plugin-prettier": "3.3.1",
     "eslint-plugin-vue": "7.0.0",
-    "gh-pages": "^3.2.3",
     "prettier": "2.2.1",
     "sass": "1.43.3",
     "sass-loader": "10.1.1"
