@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Dashboard from "@/views/Dashboard.vue";
 import Tables from "@/views/Tables.vue";
 import Billing from "@/views/Billing.vue";
@@ -12,54 +12,54 @@ const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/dashboard",
+    redirect: "/dashboard"
   },
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: Dashboard,
+    component: Dashboard
   },
   {
     path: "/tables",
     name: "Tables",
-    component: Tables,
+    component: Tables
   },
   {
     path: "/billing",
     name: "Billing",
-    component: Billing,
+    component: Billing
   },
   {
     path: "/virtual-reality",
     name: "Virtual Reality",
-    component: VirtualReality,
+    component: VirtualReality
   },
   {
     path: "/profile",
     name: "Profile",
-    component: Profile,
+    component: Profile
   },
   {
     path: "/rtl-page",
     name: "Rtl",
-    component: Rtl,
+    component: Rtl
   },
   {
     path: "/sign-in",
     name: "Sign In",
-    component: SignIn,
+    component: SignIn
   },
   {
     path: "/sign-up",
     name: "Sign Up",
-    component: SignUp,
-  },
+    component: SignUp
+  }
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
-  linkActiveClass: "active",
+  linkActiveClass: "active"
 });
 
 export default router;
