@@ -6,8 +6,8 @@
           <h6 class="mb-0">Invoices</h6>
         </div>
         <div class="col-6 text-end">
-          <vsud-button color="success" size="sm" variant="outline"
-            >View All</vsud-button
+          <soft-button color="success" size="sm" variant="outline"
+            >View All</soft-button
           >
         </div>
       </div>
@@ -105,12 +105,12 @@
 </template>
 
 <script>
-import VsudButton from "@/components/VsudButton.vue";
+import SoftButton from "@/components/SoftButton.vue";
 
 export default {
   name: "InvoiceCard",
   components: {
-    VsudButton,
+    SoftButton,
   },
 };
 </script>

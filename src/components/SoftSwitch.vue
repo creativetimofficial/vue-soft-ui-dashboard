@@ -1,13 +1,14 @@
 <template>
-  <div class="form-check">
+  <div class="form-check form-switch">
     <input
       :id="id"
       class="form-check-input"
+      :class="$attrs.class"
       type="checkbox"
       :name="name"
       :checked="checked"
     />
-    <label :for="id" class="custom-control-label" :class="$attrs.class">
+    <label class="form-check-label" :class="labelClass" :for="id">
       <slot />
     </label>
   </div>
@@ -15,19 +16,23 @@
 
 <script>
 export default {
-  name: "VsudCheckbox",
+  name: "SoftSwitch",
   props: {
     name: {
       type: String,
-      default: "",
+      required: true,
     },
     id: {
       type: String,
-      default: "",
+      required: true,
     },
     checked: {
       type: Boolean,
       default: false,
+    },
+    labelClass: {
+      type: String,
+      default: "",
     },
   },
 };

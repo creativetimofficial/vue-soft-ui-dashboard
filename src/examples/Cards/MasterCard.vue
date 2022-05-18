@@ -32,7 +32,7 @@
             class="w-20 d-flex align-items-end justify-content-end"
             :class="$store.state.isRTL ? 'me-auto' : 'ms-auto'"
           >
-            <vsud-avatar class="w-60 mt-2" :img="img1" alt="logo" />
+            <soft-avatar class="w-60 mt-2" :img="img1" alt="logo" />
           </div>
         </div>
       </div>
@@ -41,14 +41,14 @@
 </template>
 
 <script>
-import VsudAvatar from "@/components/VsudAvatar.vue";
+import SoftAvatar from "@/components/SoftAvatar.vue";
 import img from "@/assets/img/curved-images/curved14.jpg";
 import img1 from "@/assets/img/logos/mastercard.png";
 
 export default {
   name: "MasterCard",
   components: {
-    VsudAvatar,
+    SoftAvatar,
   },
   props: {
     card: {

@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "VsudTextarea",
+  name: "SoftTextarea",
   props: {
     id: {
       type: String,

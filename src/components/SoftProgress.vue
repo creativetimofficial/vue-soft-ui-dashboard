@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "VsudProgress",
+  name: "SoftProgress",
   props: {
     color: {
       type: String,

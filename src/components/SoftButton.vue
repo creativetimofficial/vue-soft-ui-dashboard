@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "VsudButton",
+  name: "SoftButton",
   props: {
     color: {
       type: String,

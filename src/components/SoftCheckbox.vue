@@ -3,11 +3,11 @@
     <input
       :id="id"
       class="form-check-input"
-      type="radio"
+      type="checkbox"
       :name="name"
       :checked="checked"
     />
-    <label class="custom-control-label" :for="id">
+    <label :for="id" class="custom-control-label" :class="$attrs.class">
       <slot />
     </label>
   </div>
@@ -15,15 +15,15 @@
 
 <script>
 export default {
-  name: "VsudRadio",
+  name: "SoftCheckbox",
   props: {
     name: {
       type: String,
-      required: true,
+      default: "",
     },
     id: {
       type: String,
-      required: true,
+      default: "",
     },
     checked: {
       type: Boolean,

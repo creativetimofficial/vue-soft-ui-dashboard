@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "VsudPaginationItem",
+  name: "SoftPaginationItem",
   props: {
     label: {
       type: String,

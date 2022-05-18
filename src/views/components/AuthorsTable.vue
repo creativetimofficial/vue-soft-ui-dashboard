@@ -36,7 +36,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img1"
                       size="sm"
                       border-radius="lg"
@@ -57,8 +57,8 @@
                 <p class="text-xs text-secondary mb-0">Organization</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <vsud-badge color="success" variant="gradient" size="sm"
-                  >Online</vsud-badge
+                <soft-badge color="success" variant="gradient" size="sm"
+                  >Online</soft-badge
                 >
               </td>
               <td class="align-middle text-center">
@@ -80,7 +80,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img2"
                       class="me-3"
                       size="sm"
@@ -101,8 +101,8 @@
                 <p class="text-xs text-secondary mb-0">Developer</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <vsud-badge color="secondary" variant="gradient" size="sm"
-                  >Offline</vsud-badge
+                <soft-badge color="secondary" variant="gradient" size="sm"
+                  >Offline</soft-badge
                 >
               </td>
               <td class="align-middle text-center">
@@ -124,7 +124,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img3"
                       size="sm"
                       border-radius="lg"
@@ -145,8 +145,8 @@
                 <p class="text-xs text-secondary mb-0">Projects</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <vsud-badge color="success" variant="gradient" size="sm"
-                  >Online</vsud-badge
+                <soft-badge color="success" variant="gradient" size="sm"
+                  >Online</soft-badge
                 >
               </td>
               <td class="align-middle text-center">
@@ -168,7 +168,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img4"
                       class="me-3"
                       size="sm"
@@ -189,8 +189,8 @@
                 <p class="text-xs text-secondary mb-0">Developer</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <vsud-badge color="success" variant="gradient" size="sm"
-                  >Online</vsud-badge
+                <soft-badge color="success" variant="gradient" size="sm"
+                  >Online</soft-badge
                 >
               </td>
               <td class="align-middle text-center">
@@ -212,7 +212,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img5"
                       class="me-3"
                       size="sm"
@@ -233,8 +233,8 @@
                 <p class="text-xs text-secondary mb-0">Executive</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <vsud-badge color="secondary" variant="gradient" size="sm"
-                  >Offline</vsud-badge
+                <soft-badge color="secondary" variant="gradient" size="sm"
+                  >Offline</soft-badge
                 >
               </td>
               <td class="align-middle text-center">
@@ -256,7 +256,7 @@
               <td>
                 <div class="d-flex px-2 py-1">
                   <div>
-                    <vsud-avatar
+                    <soft-avatar
                       :img="img6"
                       class="me-3"
                       size="sm"
@@ -277,8 +277,8 @@
                 <p class="text-xs text-secondary mb-0">Developer</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <vsud-badge color="secondary" variant="gradient" size="sm"
-                  >Offline</vsud-badge
+                <soft-badge color="secondary" variant="gradient" size="sm"
+                  >Offline</soft-badge
                 >
               </td>
               <td class="align-middle text-center">
@@ -304,8 +304,8 @@
 </template>
 
 <script>
-import VsudAvatar from "@/components/VsudAvatar.vue";
-import VsudBadge from "@/components/VsudBadge.vue";
+import SoftAvatar from "@/components/SoftAvatar.vue";
+import SoftBadge from "@/components/SoftBadge.vue";
 import img1 from "../../assets/img/team-2.jpg";
 import img2 from "../../assets/img/team-3.jpg";
 import img3 from "../../assets/img/team-4.jpg";
@@ -326,8 +326,8 @@ export default {
     };
   },
   components: {
-    VsudAvatar,
-    VsudBadge,
+    SoftAvatar,
+    SoftBadge,
   },
 };
 </script>

@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "VsudAvatar",
+  name: "SoftAvatar",
   props: {
     img: {
       type: String,

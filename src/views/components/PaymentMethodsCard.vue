@@ -6,10 +6,10 @@
           <h6 class="mb-0">Payment Methods</h6>
         </div>
         <div class="col-6 text-end">
-          <vsud-button color="dark" variant="gradient">
+          <soft-button color="dark" variant="gradient">
             <i class="fas fa-plus me-2"></i>
             Add New Card
-          </vsud-button>
+          </soft-button>
         </div>
       </div>
     </div>
@@ -69,14 +69,14 @@
 </template>
 
 <script>
-import VsudButton from "@/components/VsudButton.vue";
+import SoftButton from "@/components/SoftButton.vue";
 import img1 from "@/assets/img/logos/mastercard.png";
 import img2 from "@/assets/img/logos/visa.png";
 
 export default {
   name: "PaymentMethodsCard",
   components: {
-    VsudButton,
+    SoftButton,
   },
   data() {
     return {
