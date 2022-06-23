@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Vue Soft UI Dashboard - v2.0.0
+* Vue Soft UI Dashboard - v3.0.0
 =========================================================
 
 * Product Page: https://creative-tim.com/product/vue-soft-ui-dashboard
