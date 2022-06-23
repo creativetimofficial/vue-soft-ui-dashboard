@@ -103,18 +103,18 @@ vue-soft-ui-dashboard
     │   │   └── scss
     │   ├── components
     │   │   ├── Icon
-    │   │   ├── VsudAlert.vue
-    │   │   ├── VsudAvatar.vue
-    │   │   ├── VsudBadge.vue
-    │   │   ├── VsudButton.vue
-    │   │   ├── VsudCheckbox.vue
-    │   │   ├── VsudInput.vue
-    │   │   ├── VsudPagination.vue
-    │   │   ├── VsudPaginationItem.vue
-    │   │   ├── VsudProgress.vue
-    │   │   ├── VsudRadio.vue
-    │   │   ├── VsudSwitch.vue
-    │   │   └── VsudTextarea.vue
+    │   │   ├── SoftAlert.vue
+    │   │   ├── SoftAvatar.vue
+    │   │   ├── SoftBadge.vue
+    │   │   ├── SoftButton.vue
+    │   │   ├── SoftCheckbox.vue
+    │   │   ├── SoftInput.vue
+    │   │   ├── SoftPagination.vue
+    │   │   ├── SoftPaginationItem.vue
+    │   │   ├── SoftProgress.vue
+    │   │   ├── SoftRadio.vue
+    │   │   ├── SoftSwitch.vue
+    │   │   └── SoftTextarea.vue
     │   ├── examples
     │   │   ├── Cards
     │   │   ├── Charts
