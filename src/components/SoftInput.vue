@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "VsudInput",
+  name: "SoftInput",
   props: {
     size: {
       type: String,

@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "VsudAlert",
+  name: "SoftAlert",
   props: {
     color: {
       type: String,

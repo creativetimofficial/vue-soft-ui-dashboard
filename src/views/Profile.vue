@@ -207,33 +207,33 @@
             </h6>
             <ul class="list-group">
               <li class="px-0 border-0 list-group-item">
-                <vsud-switch
+                <soft-switch
                   id="flexSwitchCheckDefault"
                   name="email"
                   class="ps-0 ms-auto"
                   label-class="mb-0 text-body ms-3 text-truncate w-80"
                   checked
-                  >Email me when someone follows me</vsud-switch
+                  >Email me when someone follows me</soft-switch
                 >
               </li>
               <li class="px-0 border-0 list-group-item">
-                <vsud-switch
+                <soft-switch
                   id="flexSwitchCheckDefault1"
                   name="Email"
                   label-class="mb-0 text-body ms-3 text-truncate w-80"
                   class="ps-0 ms-auto"
-                  >Email me when someone answers on my post</vsud-switch
+                  >Email me when someone answers on my post</soft-switch
                 >
               </li>
 
               <li class="px-0 border-0 list-group-item">
-                <vsud-switch
+                <soft-switch
                   id="flexSwitchCheckDefault2"
                   name="Email"
                   label-class="mb-0 text-body ms-3 text-truncate w-80"
                   class="ps-0 ms-auto"
                   checked
-                  >Email me when someone mentions me</vsud-switch
+                  >Email me when someone mentions me</soft-switch
                 >
               </li>
             </ul>
@@ -244,31 +244,31 @@
             </h6>
             <ul class="list-group">
               <li class="px-0 border-0 list-group-item">
-                <vsud-switch
+                <soft-switch
                   id="flexSwitchCheckDefault3"
                   name="Project Launch"
                   class="ps-0 ms-auto"
                   label-class="mb-0 text-body ms-3 text-truncate w-80"
-                  >New launches and projects</vsud-switch
+                  >New launches and projects</soft-switch
                 >
               </li>
               <li class="px-0 border-0 list-group-item">
-                <vsud-switch
+                <soft-switch
                   id="flexSwitchCheckDefault4"
                   name="Product Update"
                   class="ps-0 ms-auto"
                   label-class="mb-0 text-body ms-3 text-truncate w-80"
                   checked
-                  >Monthly product updates</vsud-switch
+                  >Monthly product updates</soft-switch
                 >
               </li>
               <li class="px-0 pb-0 border-0 list-group-item">
-                <vsud-switch
+                <soft-switch
                   id="flexSwitchCheckDefault5"
                   name="Newsletter"
                   class="ps-0 ms-auto"
                   label-class="mb-0 text-body ms-3 text-truncate w-80"
-                  >Subscribe to newsletter</vsud-switch
+                  >Subscribe to newsletter</soft-switch
                 >
               </li>
             </ul>
@@ -315,7 +315,7 @@
               <li
                 class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
               >
-                <vsud-avatar
+                <soft-avatar
                   class="me-3"
                   :img="sophie"
                   alt="kal"
@@ -337,7 +337,7 @@
               <li
                 class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
               >
-                <vsud-avatar
+                <soft-avatar
                   class="me-3"
                   :img="marie"
                   alt="kal"
@@ -359,7 +359,7 @@
               <li
                 class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
               >
-                <vsud-avatar
+                <soft-avatar
                   class="me-3"
                   :img="ivana"
                   alt="kal"
@@ -381,7 +381,7 @@
               <li
                 class="px-0 mb-2 border-0 list-group-item d-flex align-items-center"
               >
-                <vsud-avatar
+                <soft-avatar
                   class="me-3"
                   :img="peterson"
                   alt="kal"
@@ -403,7 +403,7 @@
               <li
                 class="px-0 border-0 list-group-item d-flex align-items-center"
               >
-                <vsud-avatar
+                <soft-avatar
                   class="me-3"
                   :img="nick"
                   alt="kal"
@@ -540,9 +540,9 @@
 </template>
 
 <script>
-import VsudSwitch from "@/components/VsudSwitch.vue";
+import SoftSwitch from "@/components/SoftSwitch.vue";
 import ProfileInfoCard from "./components/ProfileInfoCard.vue";
-import VsudAvatar from "@/components/VsudAvatar.vue";
+import SoftAvatar from "@/components/SoftAvatar.vue";
 import sophie from "@/assets/img/kal-visuals-square.jpg";
 import marie from "@/assets/img/marie.jpg";
 import ivana from "@/assets/img/ivana-square.jpg";
@@ -568,9 +568,9 @@ import setTooltip from "@/assets/js/tooltip.js";
 export default {
   name: "ProfileOverview",
   components: {
-    VsudSwitch,
+    SoftSwitch,
     ProfileInfoCard,
-    VsudAvatar,
+    SoftAvatar,
     DefaultProjectCard,
     PlaceHolderCard,
   },

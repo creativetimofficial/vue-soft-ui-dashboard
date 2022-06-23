@@ -26,30 +26,30 @@
                 <div class="card-body">
                   <form role="form" class="text-start">
                     <label>Email</label>
-                    <vsud-input
+                    <soft-input
                       id="email"
                       type="email"
                       placeholder="Email"
                       name="email"
                     />
                     <label>Password</label>
-                    <vsud-input
+                    <soft-input
                       id="password"
                       type="password"
                       placeholder="Password"
                       name="password"
                     />
-                    <vsud-switch id="rememberMe" name="rememberMe" checked>
+                    <soft-switch id="rememberMe" name="rememberMe" checked>
                       Remember me
-                    </vsud-switch>
+                    </soft-switch>
                     <div class="text-center">
-                      <vsud-button
+                      <soft-button
                         class="my-4 mb-2"
                         variant="gradient"
                         color="success"
                         full-width
                         >Sign in
-                      </vsud-button>
+                      </soft-button>
                     </div>
                   </form>
                 </div>
@@ -91,9 +91,9 @@
 <script>
 import Navbar from "@/examples/PageLayout/Navbar.vue";
 import AppFooter from "@/examples/PageLayout/Footer.vue";
-import VsudInput from "@/components/VsudInput.vue";
-import VsudSwitch from "@/components/VsudSwitch.vue";
-import VsudButton from "@/components/VsudButton.vue";
+import SoftInput from "@/components/SoftInput.vue";
+import SoftSwitch from "@/components/SoftSwitch.vue";
+import SoftButton from "@/components/SoftButton.vue";
 const body = document.getElementsByTagName("body")[0];
 import { mapMutations } from "vuex";
 
@@ -102,9 +102,9 @@ export default {
   components: {
     Navbar,
     AppFooter,
-    VsudInput,
-    VsudSwitch,
-    VsudButton,
+    SoftInput,
+    SoftSwitch,
+    SoftButton,
   },
   created() {
     this.toggleEveryDisplay();

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "VsudPagination",
+  name: "SoftPagination",
   props: {
     color: {
       type: String,

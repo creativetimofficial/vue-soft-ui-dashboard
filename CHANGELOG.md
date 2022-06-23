@@ -1,5 +1,9 @@
 # Change Log
 
+## [3.0.0] 2022-06-24
+
+- Renamed components name prefix from Vsud to Soft.
+
 ## [2.0.0] 2022-03-30
 
 ### Bug fixing

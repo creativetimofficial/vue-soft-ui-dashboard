@@ -138,7 +138,7 @@
           <div class="card-body">
             <form role="form">
               <div class="mb-3">
-                <vsud-input
+                <soft-input
                   id="name"
                   type="text"
                   placeholder="Name"
@@ -146,7 +146,7 @@
                 />
               </div>
               <div class="mb-3">
-                <vsud-input
+                <soft-input
                   id="email"
                   type="email"
                   placeholder="Email"
@@ -154,14 +154,14 @@
                 />
               </div>
               <div class="mb-3">
-                <vsud-input
+                <soft-input
                   id="password"
                   type="password"
                   placeholder="Password"
                   aria-label="Password"
                 />
               </div>
-              <vsud-checkbox
+              <soft-checkbox
                 id="flexCheckDefault"
                 name="flexCheckDefault"
                 class="font-weight-light"
@@ -171,15 +171,15 @@
                 <a href="javascript:;" class="text-dark font-weight-bolder"
                   >Terms and Conditions</a
                 >
-              </vsud-checkbox>
+              </soft-checkbox>
 
               <div class="text-center">
-                <vsud-button
+                <soft-button
                   color="dark"
                   full-width
                   variant="gradient"
                   class="my-4 mb-2"
-                  >Sign up</vsud-button
+                  >Sign up</soft-button
                 >
               </div>
               <p class="text-sm mt-3 mb-0">
@@ -203,9 +203,9 @@
 <script>
 import Navbar from "@/examples/PageLayout/Navbar.vue";
 import AppFooter from "@/examples/PageLayout/Footer.vue";
-import VsudInput from "@/components/VsudInput.vue";
-import VsudCheckbox from "@/components/VsudCheckbox.vue";
-import VsudButton from "@/components/VsudButton.vue";
+import SoftInput from "@/components/SoftInput.vue";
+import SoftCheckbox from "@/components/SoftCheckbox.vue";
+import SoftButton from "@/components/SoftButton.vue";
 
 import { mapMutations } from "vuex";
 
@@ -214,9 +214,9 @@ export default {
   components: {
     Navbar,
     AppFooter,
-    VsudInput,
-    VsudCheckbox,
-    VsudButton,
+    SoftInput,
+    SoftCheckbox,
+    SoftButton,
   },
   created() {
     this.toggleEveryDisplay();
