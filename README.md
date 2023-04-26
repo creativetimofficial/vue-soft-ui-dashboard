@@ -36,6 +36,7 @@ View [example pages here](https://demos.creative-tim.com/vue-soft-ui-dashboard/)
 During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
 
 - [Popper.js](https://popper.js.org/) - Kickass library used to manage poppers
+- [Nepcha Analytics](https://nepcha.com?ref=readme) for the analytics tool. Nepcha is already integrated with Vue Soft UI Dashboard. You can use it to gain insights into your sources of traffic.
 
 Let us know your thoughts below. And good luck with development!
 
@@ -165,6 +166,7 @@ At present, we officially aim to support the last two versions of the following 
 - [License Agreement](https://www.creative-tim.com/license?ref=readme-vsud)
 - [Support](https://www.creative-tim.com/contact-us?ref=readme-vsud)
 - Issues: [Github Issues Page](https://github.com/creativetimofficial/vue-soft-ui-dashboard/issues)
+- [Nepcha Analytics](https://nepcha.com?ref=readme) - Analytics tool for your website
 
 ## Reporting Issues
 
