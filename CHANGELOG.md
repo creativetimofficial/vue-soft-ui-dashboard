@@ -1,5 +1,11 @@
 # Change Log
 
+## [4.0.0] 2023-07-07
+
+- Update dependencies & devDependencies
+- Refactor code from `options api` to `composition api`
+- Add Support for `v-model` to the `SoftInput`
+
 ## [3.0.0] 2022-06-24
 
 - Renamed components name prefix from Vsud to Soft.
