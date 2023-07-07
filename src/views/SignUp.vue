@@ -1,3 +1,26 @@
+<script setup>
+import { onBeforeMount, onBeforeUnmount } from "vue";
+import { useStore } from "vuex";
+
+import Navbar from "@/examples/PageLayout/Navbar.vue";
+import AppFooter from "@/examples/PageLayout/Footer.vue";
+import SoftInput from "@/components/SoftInput.vue";
+import SoftCheckbox from "@/components/SoftCheckbox.vue";
+import SoftButton from "@/components/SoftButton.vue";
+
+const store = useStore();
+const toggleEveryDisplay = () => store.commit("toggleEveryDisplay");
+const toggleHideConfig = () => store.commit("toggleHideConfig");
+
+onBeforeMount(() => {
+  toggleEveryDisplay();
+  toggleHideConfig();
+});
+onBeforeUnmount(() => {
+  toggleEveryDisplay();
+  toggleHideConfig();
+});
+</script>
 <template>
   <navbar btn-background="bg-gradient-primary" />
   <div
@@ -199,35 +222,3 @@
   </div>
   <app-footer />
 </template>
-
-<script>
-import Navbar from "@/examples/PageLayout/Navbar.vue";
-import AppFooter from "@/examples/PageLayout/Footer.vue";
-import SoftInput from "@/components/SoftInput.vue";
-import SoftCheckbox from "@/components/SoftCheckbox.vue";
-import SoftButton from "@/components/SoftButton.vue";
-
-import { mapMutations } from "vuex";
-
-export default {
-  name: "SignupBasic",
-  components: {
-    Navbar,
-    AppFooter,
-    SoftInput,
-    SoftCheckbox,
-    SoftButton,
-  },
-  created() {
-    this.toggleEveryDisplay();
-    this.toggleHideConfig();
-  },
-  beforeUnmount() {
-    this.toggleEveryDisplay();
-    this.toggleHideConfig();
-  },
-  methods: {
-    ...mapMutations(["toggleEveryDisplay", "toggleHideConfig"]),
-  },
-};
-</script>

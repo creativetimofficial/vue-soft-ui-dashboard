@@ -1,3 +1,6 @@
+<script setup>
+import SoftButton from "@/components/SoftButton.vue";
+</script>
 <template>
   <div class="card h-100 mt-4">
     <div class="card-header pb-0 p-3">
@@ -103,14 +106,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import SoftButton from "@/components/SoftButton.vue";
-
-export default {
-  name: "InvoiceCard",
-  components: {
-    SoftButton,
-  },
-};
-</script>

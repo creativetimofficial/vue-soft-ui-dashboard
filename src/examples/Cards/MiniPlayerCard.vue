@@ -1,3 +1,22 @@
+<script setup>
+import image from "@/assets/img/curved-images/curved1.jpg";
+
+defineProps({
+  color: {
+    type: String,
+    default: "success",
+  },
+  song: {
+    type: Object,
+    default: () => ({
+      title: "Some Kind Of Blues",
+      singer: "Deftones",
+    }),
+    title: String,
+    singer: String,
+  },
+});
+</script>
 <template>
   <div
     class="card card-background move-on-hover align-items-start"
@@ -6,9 +25,7 @@
     <div class="cursor-pointer">
       <div
         class="full-background"
-        style="
-          background-image: url('../../../assets/img/curved-images/curved1.jpg');
-        "
+        :style="{ backgroundImage: `url(${image})` }"
       ></div>
       <div class="card-body">
         <h5 class="mb-0 text-white">{{ song.title }}</h5>
@@ -46,24 +63,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "PlayerCard",
-  props: {
-    color: {
-      type: String,
-      default: "success",
-    },
-    song: {
-      type: Object,
-      default: () => ({
-        title: "Some Kind Of Blues",
-        singer: "Deftones",
-      }),
-      title: String,
-      singer: String,
-    },
-  },
-};
-</script>

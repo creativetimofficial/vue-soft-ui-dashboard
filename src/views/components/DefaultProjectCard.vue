@@ -1,3 +1,36 @@
+<script setup>
+defineProps({
+  image: {
+    type: String,
+    default: "",
+  },
+  label: {
+    type: String,
+    default: "",
+  },
+  title: {
+    type: String,
+    default: "Default Project Card",
+  },
+  description: {
+    type: String,
+    default: "",
+  },
+  action: {
+    type: Object,
+    route: String,
+    color: String,
+    label: String,
+    default: () => {},
+  },
+  authors: {
+    type: Array,
+    image: String,
+    name: String,
+    default: () => [],
+  },
+});
+</script>
 <template>
   <div class="mb-4 col-xl-3 col-md-6 mb-xl-0">
     <div class="card card-blog card-plain">
@@ -44,40 +77,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "DefaultProjectCard",
-  props: {
-    image: {
-      type: String,
-      default: "",
-    },
-    label: {
-      type: String,
-      default: "",
-    },
-    title: {
-      type: String,
-      default: "Default Project Card",
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    action: {
-      type: Object,
-      route: String,
-      color: String,
-      label: String,
-      default: () => {},
-    },
-    authors: {
-      type: Array,
-      image: String,
-      name: String,
-      default: () => [],
-    },
-  },
-};
-</script>

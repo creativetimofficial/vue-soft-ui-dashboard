@@ -1,3 +1,19 @@
+<script setup>
+defineProps({
+  route: {
+    type: String,
+    default: "",
+  },
+  text: {
+    type: String,
+    default: "Emails (21)",
+  },
+  tooltip: {
+    type: String,
+    default: "Check your emails",
+  },
+});
+</script>
 <template>
   <div class="mt-4 card move-on-hover">
     <div class="card-body">
@@ -17,23 +33,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "EmailCard",
-  props: {
-    route: {
-      type: String,
-      default: "",
-    },
-    text: {
-      type: String,
-      default: "Emails (21)",
-    },
-    tooltip: {
-      type: String,
-      default: "Check your emails",
-    },
-  },
-};
-</script>

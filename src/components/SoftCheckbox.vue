@@ -1,3 +1,19 @@
+<script setup>
+defineProps({
+  name: {
+    type: String,
+    default: "",
+  },
+  id: {
+    type: String,
+    default: "",
+  },
+  checked: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
 <template>
   <div class="form-check">
     <input
@@ -12,23 +28,3 @@
     </label>
   </div>
 </template>
-
-<script>
-export default {
-  name: "SoftCheckbox",
-  props: {
-    name: {
-      type: String,
-      default: "",
-    },
-    id: {
-      type: String,
-      default: "",
-    },
-    checked: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
-</script>

@@ -1,3 +1,24 @@
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+  item: {
+    type: Array,
+    default: () => {},
+    title: String,
+    date: String,
+    amount: String,
+    icon: String,
+    color: String,
+  },
+  horizontalBreak: {
+    type: Boolean,
+    default: true,
+  },
+});
+</script>
 <template>
   <h6
     v-if="title"
@@ -39,27 +60,3 @@
     </li>
   </ul>
 </template>
-<script>
-export default {
-  name: "RankingList",
-  props: {
-    title: {
-      type: String,
-      default: "",
-    },
-    item: {
-      type: Array,
-      default: () => {},
-      title: String,
-      date: String,
-      amount: String,
-      icon: String,
-      color: String,
-    },
-    horizontalBreak: {
-      type: Boolean,
-      default: true,
-    },
-  },
-};
-</script>

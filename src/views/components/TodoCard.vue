@@ -1,3 +1,16 @@
+<script setup>
+import { computed } from "vue";
+
+const getLength = computed(() => {
+  return props.todos.length;
+});
+const props = defineProps({
+  todos: {
+    type: Array,
+    default: () => [],
+  },
+});
+</script>
 <template>
   <div class="card bg-gradient-dark move-on-hover">
     <div class="card-body">
@@ -8,7 +21,11 @@
           <p class="mb-0 text-sm text-white">items</p>
         </div>
       </div>
-      <p v-for="(todo, index) of todos" :key="index" class="mb-0 text-white">
+      <p
+        v-for="(todo, index) of props.todos"
+        :key="index"
+        class="mb-0 text-white"
+      >
         {{ todo }}
       </p>
     </div>
@@ -23,20 +40,3 @@
     </a>
   </div>
 </template>
-
-<script>
-export default {
-  name: "TodoCard",
-  props: {
-    todos: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  computed: {
-    getLength() {
-      return this.todos.length;
-    },
-  },
-};
-</script>

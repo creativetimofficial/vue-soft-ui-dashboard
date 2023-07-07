@@ -1,3 +1,22 @@
+<script setup>
+import { onMounted } from "vue";
+
+import NavPill from "./components/NavPill.vue";
+import MasterCard from "@/examples/Cards/MasterCard.vue";
+import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
+import PaymentMethodsCard from "./components/PaymentMethodsCard.vue";
+import InvoiceCard from "./components/InvoiceCard.vue";
+import BillingCard from "./components/BillingCard.vue";
+import RankingList from "@/examples/Cards/RankingList.vue";
+import RankingListCard from "@/examples/Cards/RankingListCard.vue";
+
+// tooltip
+import setTooltip from "@/assets/js/tooltip.js";
+
+onMounted(() => {
+  setTooltip();
+});
+</script>
 <template>
   <div class="container-fluid mt-4">
     <div class="row align-items-center">
@@ -130,32 +149,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import setTooltip from "@/assets/js/tooltip.js";
-import NavPill from "./components/NavPill.vue";
-import MasterCard from "@/examples/Cards/MasterCard.vue";
-import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
-import PaymentMethodsCard from "./components/PaymentMethodsCard.vue";
-import InvoiceCard from "./components/InvoiceCard.vue";
-import BillingCard from "./components/BillingCard.vue";
-import RankingList from "@/examples/Cards/RankingList.vue";
-import RankingListCard from "@/examples/Cards/RankingListCard.vue";
-
-export default {
-  name: "Billing",
-  components: {
-    NavPill,
-    MasterCard,
-    DefaultInfoCard,
-    PaymentMethodsCard,
-    InvoiceCard,
-    BillingCard,
-    RankingList,
-    RankingListCard,
-  },
-  mounted() {
-    setTooltip();
-  },
-};
-</script>

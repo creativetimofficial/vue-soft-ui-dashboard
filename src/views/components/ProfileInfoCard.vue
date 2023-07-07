@@ -1,3 +1,39 @@
+<script setup>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+  description: {
+    type: String,
+    default: "",
+  },
+  info: {
+    type: Object,
+    fullName: String,
+    mobile: String,
+    email: String,
+    location: String,
+    default: () => {},
+  },
+  social: {
+    type: Array,
+    link: String,
+    icon: String,
+    default: () => [],
+  },
+  action: {
+    type: Object,
+    route: String,
+    tooltip: String,
+    default: () => ({
+      route: "javascript:;",
+    }),
+  },
+});
+</script>
 <template>
   <div class="card h-100">
     <div class="p-3 pb-0 card-header">
@@ -52,46 +88,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-export default {
-  name: "ProfileInfoCard",
-  components: {
-    FontAwesomeIcon,
-  },
-  props: {
-    title: {
-      type: String,
-      default: "",
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    info: {
-      type: Object,
-      fullName: String,
-      mobile: String,
-      email: String,
-      location: String,
-      default: () => {},
-    },
-    social: {
-      type: Array,
-      link: String,
-      icon: String,
-      default: () => [],
-    },
-    action: {
-      type: Object,
-      route: String,
-      tooltip: String,
-      default: () => ({
-        route: "javascript:;",
-      }),
-    },
-  },
-};
-</script>

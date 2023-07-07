@@ -1,3 +1,16 @@
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
+  placeholder: {
+    type: String,
+    default: "Your text here...",
+  },
+});
+</script>
+
 <template>
   <div class="form-group">
     <label :for="id">
@@ -11,19 +24,3 @@
     ></textarea>
   </div>
 </template>
-
-<script>
-export default {
-  name: "SoftTextarea",
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    placeholder: {
-      type: String,
-      default: "Your text here...",
-    },
-  },
-};
-</script>

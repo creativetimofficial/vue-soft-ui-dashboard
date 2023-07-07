@@ -1,3 +1,60 @@
+<script setup>
+import { computed, onBeforeMount, ref } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const store = useStore();
+
+const fixedKey = ref("");
+
+const isNavFixed = computed(() => store.state.isNavFixed);
+const isRTL = computed(() => store.state.isRTL);
+const isTransparent = computed(() => store.state.isTransparent);
+
+// mutations
+const sidebarType = (type) => store.commit("sidebarType", type);
+
+// actions
+const setCardBackground = () => store.dispatch("setCardBackground");
+
+function sidenavTypeOnResize() {
+  let transparent = document.querySelector("#btn-transparent");
+  let white = document.querySelector("#btn-white");
+  if (window.innerWidth < 1200) {
+    transparent.classList.add("disabled");
+    white.classList.add("disabled");
+  } else {
+    transparent.classList.remove("disabled");
+    white.classList.remove("disabled");
+  }
+}
+function sidebarColor(color = "success") {
+  document.querySelector("#sidenav-main").setAttribute("data-color", color);
+  let mcolor = `card-background-mask-${color}`;
+  setCardBackground(mcolor);
+}
+
+function setNavbarFixed() {
+  if (route.name !== "Profile") {
+    store.state.isNavFixed = !store.state.isNavFixed;
+  }
+}
+
+onBeforeMount(() => {
+  store.state.isTransparent = "bg-transparent";
+  // Deactivate sidenav type buttons on resize and small screens
+  window.addEventListener("resize", sidenavTypeOnResize);
+  window.addEventListener("load", sidenavTypeOnResize);
+});
+
+defineProps({
+  toggle: {
+    type: Function,
+    default: null,
+  },
+});
+</script>
 <template>
   <div class="fixed-plugin">
     <a
@@ -28,7 +85,7 @@
         <a href="#" class="switch-trigger background-color">
           <div
             class="my-2 badge-colors"
-            :class="this.$store.state.isRTL ? 'text-end' : ' text-start'"
+            :class="isRTL ? 'text-end' : ' text-start'"
           >
             <span
               class="badge filter bg-gradient-primary active"
@@ -71,7 +128,7 @@
           <button
             id="btn-transparent"
             class="px-3 mb-2 btn bg-gradient-success w-100"
-            :class="ifTransparent === 'bg-transparent' ? 'active' : ''"
+            :class="isTransparent === 'bg-transparent' ? 'active' : ''"
             @click="sidebarType('bg-transparent')"
           >
             Transparent
@@ -79,7 +136,7 @@
           <button
             id="btn-white"
             class="px-3 mb-2 btn bg-gradient-success w-100 ms-2"
-            :class="ifTransparent === 'bg-white' ? 'active' : ''"
+            :class="isTransparent === 'bg-white' ? 'active' : ''"
             @click="sidebarType('bg-white')"
           >
             White
@@ -95,10 +152,10 @@
         <div class="form-check form-switch ps-0">
           <input
             class="mt-1 form-check-input"
-            :class="this.$store.state.isRTL ? 'float-end  me-auto' : ' ms-auto'"
+            :class="isRTL ? 'float-end  me-auto' : ' ms-auto'"
             type="checkbox"
             id="navbarFixed"
-            :checked="this.$store.state.isNavFixed"
+            :checked="isNavFixed"
             @change="setNavbarFixed"
             v-model="fixedKey"
           />
@@ -149,61 +206,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import { mapMutations, mapActions } from "vuex";
-export default {
-  name: "configurator",
-  props: ["toggle"],
-  data() {
-    return {
-      fixedKey: "",
-    };
-  },
-  methods: {
-    ...mapMutations(["navbarMinimize", "sidebarType", "navbarFixed"]),
-    ...mapActions(["toggleSidebarColor"]),
-
-    sidebarColor(color = "success") {
-      document.querySelector("#sidenav-main").setAttribute("data-color", color);
-      this.$store.state.mcolor = `card-background-mask-${color}`;
-    },
-
-    sidebarType(type) {
-      this.toggleSidebarColor(type);
-    },
-
-    setNavbarFixed() {
-      if (this.$route.name !== "Profile") {
-        this.$store.state.isNavFixed = !this.$store.state.isNavFixed;
-      }
-    },
-
-    sidenavTypeOnResize() {
-      let transparent = document.querySelector("#btn-transparent");
-      let white = document.querySelector("#btn-white");
-      if (window.innerWidth < 1200) {
-        transparent.classList.add("disabled");
-        white.classList.add("disabled");
-      } else {
-        transparent.classList.remove("disabled");
-        white.classList.remove("disabled");
-      }
-    },
-  },
-  computed: {
-    ifTransparent() {
-      return this.$store.state.isTransparent;
-    },
-    sidenavResponsive() {
-      return this.sidenavTypeOnResize;
-    },
-  },
-  beforeMount() {
-    this.$store.state.isTransparent = "bg-transparent";
-    // Deactivate sidenav type buttons on resize and small screens
-    window.addEventListener("resize", this.sidenavTypeOnResize);
-    window.addEventListener("load", this.sidenavTypeOnResize);
-  },
-};
-</script>

@@ -1,3 +1,29 @@
+<script setup>
+import RankingList from "./RankingList.vue";
+
+defineProps({
+  card: {
+    type: Object,
+    title: String,
+    subtitle: String,
+    date: String,
+    default: () => {},
+  },
+  item: {
+    type: Array,
+    default: () => {},
+    title: String,
+    date: String,
+    amount: String,
+    icon: String,
+    color: String,
+  },
+  horizontalBreak: {
+    type: Boolean,
+    default: true,
+  },
+});
+</script>
 <template>
   <div class="card h-100">
     <div class="p-3 pb-0 card-header">
@@ -24,35 +50,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import RankingList from "./RankingList.vue";
-export default {
-  name: "RankingListCard",
-  components: {
-    RankingList,
-  },
-  props: {
-    card: {
-      type: Object,
-      title: String,
-      subtitle: String,
-      date: String,
-      default: () => {},
-    },
-    item: {
-      type: Array,
-      default: () => {},
-      title: String,
-      date: String,
-      amount: String,
-      icon: String,
-      color: String,
-    },
-    horizontalBreak: {
-      type: Boolean,
-      default: true,
-    },
-  },
-};
-</script>

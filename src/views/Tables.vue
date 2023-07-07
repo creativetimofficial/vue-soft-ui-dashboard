@@ -1,3 +1,7 @@
+<script setup>
+import AuthorsTable from "./components/AuthorsTable";
+import ProjectsTable from "./components/ProjectsTable";
+</script>
 <template>
   <div class="py-4 container-fluid">
     <div class="row">
@@ -12,16 +16,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import AuthorsTable from "./components/AuthorsTable";
-import ProjectsTable from "./components/ProjectsTable";
-
-export default {
-  name: "tables",
-  components: {
-    AuthorsTable,
-    ProjectsTable,
-  },
-};
-</script>
