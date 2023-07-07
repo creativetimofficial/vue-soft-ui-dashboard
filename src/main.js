@@ -1,10 +1,10 @@
 /**
 =========================================================
-* Vue Soft UI Dashboard - v3.0.0
+* Vue Soft UI Dashboard - v4.0.0
 =========================================================
 
 * Product Page: https://creative-tim.com/product/vue-soft-ui-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
 
 Coded by www.creative-tim.com
 

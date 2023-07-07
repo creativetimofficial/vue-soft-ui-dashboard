@@ -1,3 +1,19 @@
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+  bills: {
+    type: Array,
+    name: String,
+    company: String,
+    email: String,
+    id: String,
+    default: () => [],
+  },
+});
+</script>
 <template>
   <div class="card">
     <div class="card-header pb-0 px-3">
@@ -46,23 +62,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "BillingCard",
-  props: {
-    title: {
-      type: String,
-      default: "",
-    },
-    bills: {
-      type: Array,
-      name: String,
-      company: String,
-      email: String,
-      id: String,
-      default: () => [],
-    },
-  },
-};
-</script>

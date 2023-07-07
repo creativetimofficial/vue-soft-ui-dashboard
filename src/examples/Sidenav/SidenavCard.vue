@@ -1,3 +1,34 @@
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+import imgWhiteCurved from "@/assets/img/curved-images/white-curved.jpeg";
+
+const store = useStore();
+const isRTL = computed(() => store.state.isRTL);
+
+defineProps({
+  textPrimary: {
+    type: String,
+    default: "",
+  },
+  textSecondary: {
+    type: String,
+    default: "",
+  },
+  route: {
+    type: String,
+    default: "",
+  },
+  label: {
+    type: String,
+    default: "",
+  },
+  icon: {
+    type: String,
+    default: "",
+  },
+});
+</script>
 <template>
   <div
     id="sidenavCard"
@@ -18,7 +49,7 @@
           :class="icon"
         ></i>
       </div>
-      <div v-if="this.$store.state.isRTL" class="docs-info">
+      <div v-if="isRTL" class="docs-info">
         <h6 class="mb-0 text-white up text-end">تحتاج مساعدة ؟</h6>
         <p class="text-xs font-weight-bold text-end">
           يرجى التحقق من مستنداتنا
@@ -37,36 +68,3 @@
     </div>
   </div>
 </template>
-<script>
-import imgWhiteCurved from "../../assets/img/curved-images/white-curved.jpeg";
-export default {
-  name: "SidenavCard",
-  props: {
-    textPrimary: {
-      type: String,
-      default: "",
-    },
-    textSecondary: {
-      type: String,
-      default: "",
-    },
-    route: {
-      type: String,
-      default: "",
-    },
-    label: {
-      type: String,
-      default: "",
-    },
-    icon: {
-      type: String,
-      default: "",
-    },
-  },
-  data() {
-    return {
-      imgWhiteCurved,
-    };
-  },
-};
-</script>

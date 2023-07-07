@@ -1,10 +1,19 @@
+<script setup>
+defineProps({
+  items: {
+    type: Array,
+    default: () => {},
+    time: [String, Number],
+    description: String,
+  },
+});
+</script>
 <template>
   <div class="overflow-hidden card move-on-hover">
     <div class="card-body">
       <template v-for="({ time, description }, index) of items" :key="index">
         <div class="d-flex">
           <h6 class="mb-0 me-3">{{ time }}</h6>
-          <!-- eslint-disable-next-line vue/no-v-html -->
           <h6 class="mb-0" v-html="description" />
         </div>
         <hr v-if="index !== items.length - 1" class="horizontal dark" />
@@ -21,17 +30,3 @@
     </a>
   </div>
 </template>
-
-<script>
-export default {
-  name: "CalendarCard",
-  props: {
-    items: {
-      type: Array,
-      default: () => {},
-      time: [String, Number],
-      description: String,
-    },
-  },
-};
-</script>

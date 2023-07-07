@@ -1,3 +1,60 @@
+<script setup>
+import { onUpdated, ref, computed } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+
+import Breadcrumbs from "../Breadcrumbs.vue";
+
+const showMenu = ref(false);
+const closeMenu = () => {
+  setTimeout(() => {
+    showMenu.value = false;
+  }, 100);
+};
+
+const store = useStore();
+const route = useRoute();
+
+const navbarMinimize = () => store.commit("navbarMinimize");
+const toggleConfigurator = () => store.commit("toggleConfigurator");
+
+const toggleSidebarColor = (color) =>
+  store.dispatch("toggleSidebarColor", color);
+
+const currentRouteName = computed(() => {
+  return route.name;
+});
+function toggleSidebar() {
+  toggleSidebarColor("bg-white");
+  navbarMinimize();
+}
+
+defineProps({
+  minNav: {
+    type: Function,
+    default: () => {},
+  },
+  textWhite: {
+    type: String,
+    default: "",
+  },
+});
+
+onUpdated(() => {
+  const navbar = document.getElementById("navbarBlur");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10 && store.state.isNavFixed) {
+      navbar.classList.add("blur");
+      navbar.classList.add("position-sticky");
+      navbar.classList.add("shadow-blur");
+    } else {
+      navbar.classList.remove("blur");
+      navbar.classList.remove("position-sticky");
+      navbar.classList.remove("shadow-blur");
+    }
+  });
+});
+</script>
 <template>
   <nav
     class="shadow-none navbar navbar-main navbar-expand-lg border-radius-xl"
@@ -9,12 +66,12 @@
       <breadcrumbs :currentPage="currentRouteName" :textWhite="textWhite" />
       <div
         class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4"
-        :class="this.$store.state.isRTL ? 'px-0' : 'me-sm-4'"
+        :class="store.state.isRTL ? 'px-0' : 'me-sm-4'"
         id="navbar"
       >
         <div
           class="pe-md-3 d-flex align-items-center"
-          :class="this.$store.state.isRTL ? 'me-md-auto' : 'ms-md-auto'"
+          :class="store.state.isRTL ? 'me-md-auto' : 'ms-md-auto'"
         >
           <div class="input-group">
             <span class="input-group-text text-body"
@@ -23,9 +80,7 @@
             <input
               type="text"
               class="form-control"
-              :placeholder="
-                this.$store.state.isRTL ? 'أكتب هنا...' : 'Type here...'
-              "
+              :placeholder="store.state.isRTL ? 'أكتب هنا...' : 'Type here...'"
             />
           </div>
         </div>
@@ -38,9 +93,9 @@
             >
               <i
                 class="fa fa-user"
-                :class="this.$store.state.isRTL ? 'ms-sm-2' : 'me-sm-1'"
+                :class="store.state.isRTL ? 'ms-sm-2' : 'me-sm-1'"
               ></i>
-              <span v-if="this.$store.state.isRTL" class="d-sm-inline d-none"
+              <span v-if="store.state.isRTL" class="d-sm-inline d-none"
                 >يسجل دخول</span
               >
               <span v-else class="d-sm-inline d-none">Sign In </span>
@@ -71,7 +126,7 @@
           </li>
           <li
             class="nav-item dropdown d-flex align-items-center"
-            :class="this.$store.state.isRTL ? 'ps-2' : 'pe-2'"
+            :class="store.state.isRTL ? 'ps-2' : 'pe-2'"
           >
             <a
               href="#"
@@ -84,6 +139,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
               @click="showMenu = !showMenu"
+              @blur="closeMenu"
             >
               <i class="cursor-pointer fa fa-bell"></i>
             </a>
@@ -200,51 +256,3 @@
     </div>
   </nav>
 </template>
-<script>
-import Breadcrumbs from "../Breadcrumbs.vue";
-import { mapMutations, mapActions } from "vuex";
-
-export default {
-  name: "navbar",
-  data() {
-    return {
-      showMenu: false,
-    };
-  },
-  props: ["minNav", "textWhite"],
-  created() {
-    this.minNav;
-  },
-  methods: {
-    ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
-    ...mapActions(["toggleSidebarColor"]),
-
-    toggleSidebar() {
-      this.toggleSidebarColor("bg-white");
-      this.navbarMinimize();
-    },
-  },
-  components: {
-    Breadcrumbs,
-  },
-  computed: {
-    currentRouteName() {
-      return this.$route.name;
-    },
-  },
-  updated() {
-    const navbar = document.getElementById("navbarBlur");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10 && this.$store.state.isNavFixed) {
-        navbar.classList.add("blur");
-        navbar.classList.add("position-sticky");
-        navbar.classList.add("shadow-blur");
-      } else {
-        navbar.classList.remove("blur");
-        navbar.classList.remove("position-sticky");
-        navbar.classList.remove("shadow-blur");
-      }
-    });
-  },
-};
-</script>

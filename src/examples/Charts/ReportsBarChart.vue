@@ -1,12 +1,130 @@
+<script setup>
+import { onMounted } from "vue";
+import Chart from "chart.js/auto";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
+  color: {
+    type: String,
+    default: "dark",
+  },
+  title: {
+    type: String,
+    default: "",
+  },
+  description: {
+    type: String,
+    default: "",
+  },
+  chart: {
+    type: Object,
+    required: true,
+    labels: Array,
+    datasets: {
+      type: Object,
+      label: String,
+      data: Array,
+    },
+  },
+  items: {
+    type: Array,
+    default: () => {
+      [];
+    },
+  },
+});
+
+onMounted(() => {
+  var ctx = document.getElementById(props.id).getContext("2d");
+
+  let chartStatus = Chart.getChart(props.id);
+  if (chartStatus != undefined) {
+    chartStatus.destroy();
+  }
+
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: props.chart.labels,
+      datasets: [
+        {
+          label: props.chart.datasets.label,
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "#fff",
+          data: props.chart.datasets.data,
+          maxBarThickness: 6,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+      interaction: {
+        intersect: false,
+        mode: "index",
+      },
+      scales: {
+        y: {
+          grid: {
+            drawBorder: false,
+            display: false,
+            drawOnChartArea: false,
+            drawTicks: false,
+          },
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 500,
+            beginAtZero: true,
+            padding: 15,
+            font: {
+              size: 14,
+              family: "Open Sans",
+              style: "normal",
+              lineHeight: 2,
+            },
+            color: "#fff",
+          },
+        },
+        x: {
+          grid: {
+            drawBorder: false,
+            display: false,
+            drawOnChartArea: false,
+            drawTicks: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
+      },
+    },
+  });
+});
+</script>
 <template>
-  <div class="py-3 mb-3 border-radius-lg pe-1" :class="`bg-gradient-${color}`">
+  <div
+    class="py-3 mb-3 border-radius-lg pe-1"
+    :class="`bg-gradient-${props.color}`"
+  >
     <div class="chart">
-      <canvas :id="id" class="chart-canvas" height="170"></canvas>
+      <canvas :id="props.id" class="chart-canvas" height="170"></canvas>
     </div>
   </div>
-  <h6 class="mt-4 mb-0 ms-2">{{ title }}</h6>
+  <h6 class="mt-4 mb-0 ms-2">{{ props.title }}</h6>
   <!-- eslint-disable vue/no-v-html -->
-  <p class="text-sm ms-2" v-html="description" />
+  <p class="text-sm ms-2" v-html="props.description" />
   <div class="container border-radius-lg">
     <div class="row">
       <div
@@ -17,7 +135,7 @@
             icon: { color: colour, component },
           },
           index
-        ) in items"
+        ) in props.items"
         :key="index"
         class="py-3 col-3 ps-0"
       >
@@ -49,122 +167,3 @@
     </div>
   </div>
 </template>
-<script>
-import Chart from "chart.js/auto";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-export default {
-  name: "ReportsBarChart",
-  components: {
-    FontAwesomeIcon,
-  },
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    color: {
-      type: String,
-      default: "dark",
-    },
-    title: {
-      type: String,
-      default: "",
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    chart: {
-      type: Object,
-      required: true,
-      labels: Array,
-      datasets: {
-        type: Object,
-        label: String,
-        data: Array,
-      },
-    },
-    items: {
-      type: Array,
-      default: () => {
-        [];
-      },
-    },
-  },
-  mounted() {
-    var ctx = document.getElementById(this.id).getContext("2d");
-
-    let chartStatus = Chart.getChart(this.id);
-    if (chartStatus != undefined) {
-      chartStatus.destroy();
-    }
-
-    new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: this.chart.labels,
-        datasets: [
-          {
-            label: this.chart.datasets.label,
-            tension: 0.4,
-            borderWidth: 0,
-            borderRadius: 4,
-            borderSkipped: false,
-            backgroundColor: "#fff",
-            data: this.chart.datasets.data,
-            maxBarThickness: 6,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-        interaction: {
-          intersect: false,
-          mode: "index",
-        },
-        scales: {
-          y: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-            },
-            ticks: {
-              suggestedMin: 0,
-              suggestedMax: 500,
-              beginAtZero: true,
-              padding: 15,
-              font: {
-                size: 14,
-                family: "Open Sans",
-                style: "normal",
-                lineHeight: 2,
-              },
-              color: "#fff",
-            },
-          },
-          x: {
-            grid: {
-              drawBorder: false,
-              display: false,
-              drawOnChartArea: false,
-              drawTicks: false,
-            },
-            ticks: {
-              display: false,
-            },
-          },
-        },
-      },
-    });
-  },
-};
-</script>

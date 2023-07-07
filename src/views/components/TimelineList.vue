@@ -1,3 +1,19 @@
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+  description: {
+    type: String,
+    default: "",
+  },
+  darkMode: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
 <template>
   <div class="card" :class="darkMode ? 'bg-gradient-dark' : ''">
     <div class="pb-0 card-header" :class="darkMode ? 'bg-transparent' : ''">
@@ -15,23 +31,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "TimelineList",
-  props: {
-    title: {
-      type: String,
-      default: "",
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
-</script>

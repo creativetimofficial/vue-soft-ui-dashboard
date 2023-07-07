@@ -1,3 +1,42 @@
+<script setup>
+import { onBeforeMount, onMounted, onBeforeUnmount } from "vue";
+import { useStore } from "vuex";
+
+// components
+import MiniStatisticsCard from "@/examples/Cards/MiniStatisticsCard.vue";
+import ReportsBarChart from "@/examples/Charts/ReportsBarChart";
+import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
+import TimelineList from "./components/TimelineList.vue";
+import TimelineItem from "./components/TimelineItem.vue";
+
+import setTooltip from "@/assets/js/tooltip.js";
+import {
+  faHandPointer,
+  faUsers,
+  faCreditCard,
+  faScrewdriverWrench,
+} from "@fortawesome/free-solid-svg-icons";
+
+const iconBackground = "bg-gradient-success";
+const store = useStore();
+
+onBeforeMount(() => {
+  store.state.isRTL = true;
+  document.querySelector("html").setAttribute("lang", "ar");
+  document.querySelector("html").setAttribute("dir", "rtl");
+  document.querySelector("#app").classList.add("rtl");
+});
+
+onMounted(() => {
+  setTooltip();
+});
+onBeforeUnmount(() => {
+  store.state.isRTL = false;
+  document.querySelector("html").removeAttribute("lang");
+  document.querySelector("html").removeAttribute("dir");
+  document.querySelector("#app").classList.remove("rtl");
+});
+</script>
 <template>
   <div class="py-4 container-fluid">
     <div class="row">
@@ -113,7 +152,7 @@
           <div
             class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
             style="
-              background-image: url('https://demos.creative-tim.com/soft-ui-dashboard/assets/img/ivancik.jpg');
+              background-image: url(&quot;https://demos.creative-tim.com/soft-ui-dashboard/assets/img/ivancik.jpg&quot;);
             "
           >
             <span class="mask bg-gradient-dark"></span>
@@ -809,54 +848,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import MiniStatisticsCard from "@/examples/Cards/MiniStatisticsCard.vue";
-import ReportsBarChart from "@/examples/Charts/ReportsBarChart";
-import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
-import TimelineList from "./components/TimelineList.vue";
-import TimelineItem from "./components/TimelineItem.vue";
-
-import setTooltip from "@/assets/js/tooltip.js";
-import {
-  faHandPointer,
-  faUsers,
-  faCreditCard,
-  faScrewdriverWrench,
-} from "@fortawesome/free-solid-svg-icons";
-
-export default {
-  name: "rtl-page",
-  data() {
-    return {
-      iconBackground: "bg-gradient-success",
-      faHandPointer,
-      faUsers,
-      faCreditCard,
-      faScrewdriverWrench,
-    };
-  },
-  components: {
-    MiniStatisticsCard,
-    ReportsBarChart,
-    GradientLineChart,
-    TimelineList,
-    TimelineItem,
-  },
-  mounted() {
-    setTooltip();
-  },
-  beforeMount() {
-    this.$store.state.isRTL = true;
-    document.querySelector("html").setAttribute("lang", "ar");
-    document.querySelector("html").setAttribute("dir", "rtl");
-    document.querySelector("#app").classList.add("rtl");
-  },
-  beforeUnmount() {
-    this.$store.state.isRTL = false;
-    document.querySelector("html").removeAttribute("lang");
-    document.querySelector("html").removeAttribute("dir");
-    document.querySelector("#app").classList.remove("rtl");
-  },
-};
-</script>

@@ -31,10 +31,15 @@ export default createStore({
         sidenav_show.classList.remove("g-sidenav-hidden");
         sidenav_show.classList.add("g-sidenav-pinned");
         state.isPinned = true;
-      } else {
+      } else if (sidenav_show.classList.contains("g-sidenav-pinned")) {
         sidenav_show.classList.add("g-sidenav-hidden");
         sidenav_show.classList.remove("g-sidenav-pinned");
         state.isPinned = false;
+      } else if (window.innerWidth < 1200) {
+        sidenav_show.classList.add("g-sidenav-pinned");
+        state.isPinned = true;
+      } else {
+        sidenav_show.classList.add("g-sidenav-hidden");
       }
     },
     sidebarType(state, payload) {

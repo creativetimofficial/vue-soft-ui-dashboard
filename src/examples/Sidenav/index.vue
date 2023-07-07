@@ -1,3 +1,18 @@
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+import SidenavList from "./SidenavList.vue";
+import logo from "@/assets/img/logo-ct.png";
+
+const store = useStore();
+const isRTL = computed(() => store.state.isRTL);
+defineProps({
+  customClass: {
+    type: String,
+    default: "",
+  },
+});
+</script>
 <template>
   <aside
     class="my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl"
@@ -19,29 +34,3 @@
     <sidenav-list :cardBg="customClass" />
   </aside>
 </template>
-<script>
-import SidenavList from "./SidenavList.vue";
-import logo from "@/assets/img/logo-ct.png";
-import { mapState } from "vuex";
-
-export default {
-  name: "index",
-  components: {
-    SidenavList,
-  },
-  data() {
-    return {
-      logo,
-    };
-  },
-  props: {
-    customClass: {
-      type: String,
-      default: "",
-    },
-  },
-  computed: {
-    ...mapState(["isRTL"]),
-  },
-};
-</script>

@@ -1,9 +1,60 @@
+<script setup>
+import { onMounted, onBeforeMount, onBeforeUnmount } from "vue";
+import { useStore } from "vuex";
+
+import Sidenav from "@/examples/Sidenav";
+import AppFooter from "@/examples/Footer.vue";
+import Navbar from "@/examples/Navbars/Navbar.vue";
+import CalendarCard from "./components/CalendarCard.vue";
+import EmailCard from "./components/EmailCard.vue";
+import TodoCard from "./components/TodoCard.vue";
+import MiniPlayerCard from "@/examples/Cards/MiniPlayerCard.vue";
+import MessageCard from "./components/MessageCard.vue";
+import setTooltip from "@/assets/js/tooltip.js";
+
+import image1 from "@/assets/img/team-1.jpg";
+import image2 from "@/assets/img/team-2.jpg";
+import image3 from "@/assets/img/team-3.jpg";
+import image4 from "@/assets/img/team-4.jpg";
+
+const body = document.getElementsByTagName("body")[0];
+
+const store = useStore();
+const navbarMinimize = () => store.commit("navbarMinimize");
+const toggleConfigurator = () => store.commit("toggleConfigurator");
+
+onBeforeMount(() => {
+  store.state.showNavbar = false;
+  store.state.showSidenav = false;
+  store.state.showFooter = false;
+  body.classList.add("virtual-reality");
+  store.state.isTransparent = "bg-white";
+});
+
+onMounted(() => {
+  setTooltip();
+});
+onBeforeUnmount(() => {
+  store.state.showNavbar = true;
+  store.state.showSidenav = true;
+  store.state.showFooter = true;
+  body.classList.remove("virtual-reality");
+
+  if (store.state.isPinned === false) {
+    const sidenav_show = document.querySelector(".g-sidenav-show");
+    sidenav_show.classList.remove("g-sidenav-hidden");
+    sidenav_show.classList.add("g-sidenav-pinned");
+    store.state.isPinned = true;
+  }
+  store.state.isTransparent = "bg-transparent";
+});
+</script>
 <template>
   <div>
     <navbar
       :min-nav="navbarMinimize"
       :toggle="toggleConfigurator"
-      :class="isNavFixed ? navbarFixed : ''"
+      :class="store.state.isNavFixed ? store.state.navbarFixed : ''"
     />
   </div>
   <div
@@ -14,8 +65,8 @@
     }"
   >
     <sidenav
-      :custom_class="mcolor"
-      :class="isTransparent"
+      :custom_class="store.state.mcolor"
+      :class="store.state.isTransparent"
       class="fixed-start"
     />
     <main class="mt-1 main-content border-radius-lg">
@@ -29,7 +80,7 @@
                 href="javascript:;"
                 class="border-0 avatar avatar-md d-block"
                 data-bs-toggle="tooltip"
-                data-bs-placement="left"
+                data-bs-placement="right"
                 title="My Profile"
               >
                 <img
@@ -42,7 +93,7 @@
                 class="p-2 mt-2 btn btn-white border-radius-lg d-block"
                 type="button"
                 data-bs-toggle="tooltip"
-                data-bs-placement="left"
+                data-bs-placement="right"
                 title="Home"
               >
                 <i class="p-2 fas fa-home"></i>
@@ -51,7 +102,7 @@
                 class="p-2 btn btn-white border-radius-lg d-block"
                 type="button"
                 data-bs-toggle="tooltip"
-                data-bs-placement="left"
+                data-bs-placement="right"
                 title="Search"
               >
                 <i class="p-2 fas fa-search"></i>
@@ -60,7 +111,7 @@
                 class="p-2 btn btn-white border-radius-lg d-block"
                 type="button"
                 data-bs-toggle="tooltip"
-                data-bs-placement="left"
+                data-bs-placement="right"
                 title="Minimize"
               >
                 <i class="p-2 fas fa-ellipsis-h"></i>
@@ -139,76 +190,3 @@
   </div>
   <app-footer class="py-3 bg-white border-radius-lg" />
 </template>
-
-<script>
-import Sidenav from "@/examples/Sidenav";
-import AppFooter from "@/examples/Footer.vue";
-import Navbar from "@/examples/Navbars/Navbar.vue";
-import CalendarCard from "./components/CalendarCard.vue";
-import EmailCard from "./components/EmailCard.vue";
-import TodoCard from "./components/TodoCard.vue";
-import MiniPlayerCard from "@/examples/Cards/MiniPlayerCard.vue";
-import MessageCard from "./components/MessageCard.vue";
-import setTooltip from "@/assets/js/tooltip.js";
-
-import image1 from "@/assets/img/team-1.jpg";
-import image2 from "@/assets/img/team-2.jpg";
-import image3 from "@/assets/img/team-3.jpg";
-import image4 from "@/assets/img/team-4.jpg";
-
-const body = document.getElementsByTagName("body")[0];
-
-import { mapMutations, mapState } from "vuex";
-
-export default {
-  name: "VrInfo",
-  components: {
-    AppFooter,
-    Sidenav,
-    Navbar,
-    CalendarCard,
-    EmailCard,
-    TodoCard,
-    MiniPlayerCard,
-    MessageCard,
-  },
-  data() {
-    return {
-      image1,
-      image2,
-      image3,
-      image4,
-    };
-  },
-  computed: {
-    ...mapState(["isTransparent", "isNavFixed", "navbarFixed", "mcolor"]),
-  },
-  mounted() {
-    setTooltip(this.$store.state.bootstrap);
-  },
-  beforeMount() {
-    this.$store.state.showNavbar = false;
-    this.$store.state.showSidenav = false;
-    this.$store.state.showFooter = false;
-    body.classList.add("virtual-reality");
-    this.$store.state.isTransparent = "bg-white";
-  },
-  beforeUnmount() {
-    this.$store.state.showNavbar = true;
-    this.$store.state.showSidenav = true;
-    this.$store.state.showFooter = true;
-    body.classList.remove("virtual-reality");
-
-    if (this.$store.state.isPinned === false) {
-      const sidenav_show = document.querySelector(".g-sidenav-show");
-      sidenav_show.classList.remove("g-sidenav-hidden");
-      sidenav_show.classList.add("g-sidenav-pinned");
-      this.$store.state.isPinned = true;
-    }
-    this.$store.state.isTransparent = "bg-transparent";
-  },
-  methods: {
-    ...mapMutations(["navbarMinimize", "toggleConfigurator"]),
-  },
-};
-</script>

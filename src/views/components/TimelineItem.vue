@@ -1,3 +1,35 @@
+<script setup>
+defineProps({
+  color: {
+    type: String,
+    default: "",
+  },
+  icon: {
+    type: String,
+    default: "",
+  },
+  title: {
+    type: String,
+    default: "",
+  },
+  dateTime: {
+    type: String,
+    default: "",
+  },
+  description: {
+    type: String,
+    default: "",
+  },
+  badges: {
+    type: Array,
+    default: () => [],
+  },
+  darkMode: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
 <template>
   <div class="mb-3 timeline-block" :class="darkMode">
     <span class="timeline-step" :class="darkMode ? 'bg-dark' : ''">
@@ -27,38 +59,3 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  name: "TimelineItem",
-  props: {
-    color: {
-      type: String,
-      default: "",
-    },
-    icon: {
-      type: String,
-      default: "",
-    },
-    title: {
-      type: String,
-      default: "",
-    },
-    dateTime: {
-      type: String,
-      default: "",
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    badges: {
-      type: Array,
-      default: () => [],
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
-</script>

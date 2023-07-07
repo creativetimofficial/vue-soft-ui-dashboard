@@ -1,3 +1,20 @@
+<script setup>
+defineProps({
+  name: {
+    type: String,
+    required: true,
+  },
+  id: {
+    type: String,
+    required: true,
+  },
+  checked: {
+    type: Boolean,
+    default: false,
+  },
+});
+</script>
+
 <template>
   <div class="form-check">
     <input
@@ -12,23 +29,3 @@
     </label>
   </div>
 </template>
-
-<script>
-export default {
-  name: "SoftRadio",
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    checked: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
-</script>

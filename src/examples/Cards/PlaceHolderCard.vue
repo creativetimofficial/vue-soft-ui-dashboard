@@ -1,3 +1,21 @@
+<script setup>
+defineProps({
+  title: {
+    type: Object,
+    default: () => {},
+    variant: {
+      validator(value) {
+        return ["h1", "h2", "h3", "h4", "h5", "h6"].includes(value);
+      },
+    },
+    text: String,
+  },
+  icon: {
+    type: String,
+    default: "plus",
+  },
+});
+</script>
 <template>
   <div class="border card h-100">
     <div
@@ -16,25 +34,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "PlaceHolderCard",
-  props: {
-    title: {
-      type: Object,
-      default: () => {},
-      variant: {
-        validator(value) {
-          return ["h1", "h2", "h3", "h4", "h5", "h6"].includes(value);
-        },
-      },
-      text: String,
-    },
-    icon: {
-      type: String,
-      default: "plus",
-    },
-  },
-};
-</script>

@@ -1,3 +1,32 @@
+<script setup>
+defineProps({
+  icon: {
+    type: [String, Object],
+    required: true,
+    component: {
+      type: String,
+    },
+    background: {
+      type: String,
+    },
+    default: () => ({
+      background: "bg-white",
+    }),
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    default: "",
+  },
+  value: {
+    type: [String, Number],
+    default: "",
+  },
+});
+</script>
 <template>
   <div class="card">
     <div class="p-3 mx-4 text-center card-header d-flex justify-content-center">
@@ -22,36 +51,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "DefaultInfoCard",
-  props: {
-    icon: {
-      type: [String, Object],
-      required: true,
-      component: {
-        type: String,
-      },
-      background: {
-        type: String,
-      },
-      default: () => ({
-        background: "bg-white",
-      }),
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      default: "",
-    },
-    value: {
-      type: [String, Number],
-      default: "",
-    },
-  },
-};
-</script>

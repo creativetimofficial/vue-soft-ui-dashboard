@@ -1,3 +1,60 @@
+<script setup>
+const reverseDirection = "flex-row-reverse justify-content-between";
+defineProps({
+  directionReverse: {
+    type: Boolean,
+    default: false,
+  },
+  title: {
+    type: [Object, String],
+    default: null,
+    text: {
+      type: String,
+    },
+    color: {
+      type: String,
+    },
+  },
+  value: {
+    type: [Object, String, Number],
+    required: true,
+    text: {
+      type: [String, Number],
+    },
+    color: {
+      type: String,
+    },
+  },
+  percentage: {
+    type: [Object, String],
+    value: {
+      type: String,
+    },
+    color: {
+      type: String,
+    },
+    default: () => ({
+      color: "text-success",
+    }),
+  },
+  icon: {
+    type: [String, Object],
+    component: {
+      type: String,
+    },
+    background: {
+      type: String,
+    },
+    default: () => ({
+      background: "bg-white",
+    }),
+  },
+  classContent: {
+    type: String,
+    default: "",
+  },
+});
+</script>
 <template>
   <div class="mb-4 card">
     <div class="p-3 card-body">
@@ -52,68 +109,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "MiniStatisticsCard",
-  props: {
-    directionReverse: {
-      type: Boolean,
-      default: false,
-    },
-    title: {
-      type: [Object, String],
-      default: null,
-      text: {
-        type: String,
-      },
-      color: {
-        type: String,
-      },
-    },
-    value: {
-      type: [Object, String, Number],
-      required: true,
-      text: {
-        type: [String, Number],
-      },
-      color: {
-        type: String,
-      },
-    },
-    percentage: {
-      type: [Object, String],
-      value: {
-        type: String,
-      },
-      color: {
-        type: String,
-      },
-      default: () => ({
-        color: "text-success",
-      }),
-    },
-    icon: {
-      type: [String, Object],
-      component: {
-        type: String,
-      },
-      background: {
-        type: String,
-      },
-      default: () => ({
-        background: "bg-white",
-      }),
-    },
-    classContent: {
-      type: String,
-      default: "",
-    },
-  },
-  data() {
-    return {
-      reverseDirection: "flex-row-reverse justify-content-between",
-    };
-  },
-};
-</script>

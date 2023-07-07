@@ -1,3 +1,11 @@
+<script setup>
+defineProps({
+  isBlur: {
+    type: String,
+    default: "",
+  },
+});
+</script>
 <template>
   <!-- Navbar -->
   <nav
@@ -90,33 +98,3 @@
   </nav>
   <!-- End Navbar -->
 </template>
-
-<script>
-import downArrWhite from "@/assets/img/down-arrow-white.svg";
-import downArrBlack from "@/assets/img/down-arrow-dark.svg";
-
-export default {
-  name: "navbar",
-  data() {
-    return {
-      downArrWhite,
-      downArrBlack,
-    };
-  },
-  props: {
-    btnBackground: String,
-    isBlur: String,
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    darkModes() {
-      return {
-        "text-dark": this.darkMode,
-      };
-    },
-  },
-};
-</script>

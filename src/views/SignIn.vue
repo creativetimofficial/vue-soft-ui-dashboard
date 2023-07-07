@@ -1,3 +1,31 @@
+<script setup>
+import { onBeforeMount, onBeforeUnmount } from "vue";
+import { useStore } from "vuex";
+
+import Navbar from "@/examples/PageLayout/Navbar.vue";
+import AppFooter from "@/examples/PageLayout/Footer.vue";
+import SoftInput from "@/components/SoftInput.vue";
+import SoftSwitch from "@/components/SoftSwitch.vue";
+import SoftButton from "@/components/SoftButton.vue";
+
+const body = document.getElementsByTagName("body")[0];
+
+const store = useStore();
+
+const toggleEveryDisplay = () => store.commit("toggleEveryDisplay");
+const toggleHideConfig = () => store.commit("toggleHideConfig");
+
+onBeforeMount(() => {
+  toggleEveryDisplay();
+  toggleHideConfig();
+  body.classList.remove("bg-gray-100");
+});
+onBeforeUnmount(() => {
+  toggleEveryDisplay();
+  toggleHideConfig();
+  body.classList.add("bg-gray-100");
+});
+</script>
 <template>
   <div class="container top-0 position-sticky z-index-sticky">
     <div class="row">
@@ -87,37 +115,3 @@
   </main>
   <app-footer />
 </template>
-
-<script>
-import Navbar from "@/examples/PageLayout/Navbar.vue";
-import AppFooter from "@/examples/PageLayout/Footer.vue";
-import SoftInput from "@/components/SoftInput.vue";
-import SoftSwitch from "@/components/SoftSwitch.vue";
-import SoftButton from "@/components/SoftButton.vue";
-const body = document.getElementsByTagName("body")[0];
-import { mapMutations } from "vuex";
-
-export default {
-  name: "SignIn",
-  components: {
-    Navbar,
-    AppFooter,
-    SoftInput,
-    SoftSwitch,
-    SoftButton,
-  },
-  created() {
-    this.toggleEveryDisplay();
-    this.toggleHideConfig();
-    body.classList.remove("bg-gray-100");
-  },
-  beforeUnmount() {
-    this.toggleEveryDisplay();
-    this.toggleHideConfig();
-    body.classList.add("bg-gray-100");
-  },
-  methods: {
-    ...mapMutations(["toggleEveryDisplay", "toggleHideConfig"]),
-  },
-};
-</script>

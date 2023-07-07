@@ -1,3 +1,6 @@
+<script setup>
+import SoftProgress from "@/components/SoftProgress";
+</script>
 <template>
   <div class="card mb-4">
     <div class="card-header pb-0">
@@ -292,14 +295,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import SoftProgress from "@/components/SoftProgress";
-
-export default {
-  name: "projects-table",
-  components: {
-    SoftProgress,
-  },
-};
-</script>

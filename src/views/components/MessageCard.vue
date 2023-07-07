@@ -1,3 +1,22 @@
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    default: "Messages",
+  },
+  messages: {
+    type: Array,
+    route: String,
+    tooltip: String,
+    image: {
+      type: [String, Object],
+      url: String,
+      alt: String,
+    },
+    default: () => [],
+  },
+});
+</script>
 <template>
   <div class="mt-4 card move-on-hover">
     <div class="card-body">
@@ -27,26 +46,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "MessageCard",
-  props: {
-    title: {
-      type: String,
-      default: "Messages",
-    },
-    messages: {
-      type: Array,
-      route: String,
-      tooltip: String,
-      image: {
-        type: [String, Object],
-        url: String,
-        alt: String,
-      },
-      default: () => [],
-    },
-  },
-};
-</script>
